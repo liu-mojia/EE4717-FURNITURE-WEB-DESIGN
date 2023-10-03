@@ -1,0 +1,70 @@
+body {
+  font-family: 'Headland One', serif;
+  margin: 0;
+  font-style: normal;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+}
+
+.top-bar {
+  background-color: #333; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  padding: 15px 20px 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.img-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/* CSS for the logo on the left */
+.logo {
+  display: inline-block;
+  margin-right: 20px; /* Add margin for spacing */
+}
+
+.left-column {
+  float: left;
+  min-width: 140px;
+  width: 60%;
+}
+
+.right-column {
+  height: auto;
+  width: 40%;
+  color: #302a22;
+}
+
+/* CSS for the elements on the right */
+.right-elements {
+  display: inline-block;
+  min-width: fit-content;
+}
+
+.right-elements a {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+a {
+  list-style: none;
+  color: #fff;
+  text-decoration: none;
+}
