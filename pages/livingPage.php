@@ -13,21 +13,25 @@
     <div class="right-elements">
       <a href="../">HOME</a>
       <a href="#">DINING</a>
-      <a href="#">LIVING</a>
+      <a href="./livingPage.php">LIVING</a>
       <a href="#">WORKSPACE</a>
       <a href="#">CONTACT US</a>
+      <a>
+          <img src="../resource/cartIcon.svg" height="26px" width="26px" />
+        </a>
     </div>
   </div>
 
-  <div class="content" style="flex-direction: column">
-    <div class="img-container" style="width: auto; height: 120px; padding: 100px 0 0 90px">
-      <img src="../resource/tick.png" style="scale: 50%"/>
+  <div class="content" >
+  <div class="banner" >
+      ji
+        <img src="../resource/livingbanner.png" />
+        <div class="image-overlay"></div>
+        <div class="image-text" >
+            yey??
+        </div>
     </div>
-    <div id="order-success" style="display: block; justify-content: center; align-items: center; padding: 0 0 0 90px; text-align: center">
-      <h3>Order Submitted</h3>
-      <p>Thank you for shopping with us</p>
-      <button onclick="window.location.href = 'index.html';">Continue Browsing</button>
-    </div>
+    
   </div>
 </body>
 </html>
