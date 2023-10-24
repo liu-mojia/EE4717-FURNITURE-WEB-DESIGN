@@ -1,5 +1,6 @@
 :root {
   --secondary: #1b0a05;
+  --tint: #fff7e2;
 }
 
 @keyframes fade-in-up {
@@ -24,6 +25,21 @@ body {
 p {
   font-family: 'Inter', sans-serif;
   font-weight: 200;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+a {
+  list-style: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 .top-bar {
@@ -62,6 +78,7 @@ p {
   float: left;
   min-width: 140px;
   width: 60%;
+  height: 100%;
 }
 
 .right-column {
@@ -82,23 +99,15 @@ p {
   font-size: 14px;
 }
 
-a {
-  list-style: none;
-  color: #fff;
-  text-decoration: none;
-}
-
 #featured-collection {
   opacity: 0;
   animation: fade-in-up 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+.hr-line {
+  width: 60%;
+  height: 2px;
   background-color: var(--secondary);
-  color: #fff;
+  float: right;
 }
