@@ -1,4 +1,21 @@
+:root {
+  --secondary: #1b0a05;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Move the content up by 50px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Return the content to its original position */
+  }
+}
+
 body {
+  display: flex;
+  flex-direction: column;
   font-family: 'Headland One', serif;
   margin: 0;
   font-style: normal;
@@ -10,8 +27,8 @@ p {
 }
 
 .top-bar {
-  background-color: #333; /* Change the background color as needed */
-  color: #fff; /* Change the text color as needed */
+  background-color: var(--secondary);
+  color: #fff;
   padding: 15px 20px 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -19,6 +36,7 @@ p {
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 .img-container {
@@ -31,10 +49,10 @@ p {
 .content {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
-/* CSS for the logo on the left */
 .logo {
   display: inline-block;
   margin-right: 20px; /* Add margin for spacing */
@@ -52,10 +70,11 @@ p {
   color: #302a22;
 }
 
-/* CSS for the elements on the right */
 .right-elements {
-  display: inline-block;
-  min-width: fit-content;
+  display: flex;
+  flex-direction: row; /* Align items vertically in a column layout */
+  align-items: center; /* Adjust as needed to control horizontal alignment */
+  margin-right: 50px;
 }
 
 .right-elements a {
@@ -67,4 +86,19 @@ a {
   list-style: none;
   color: #fff;
   text-decoration: none;
+}
+
+#featured-collection {
+  opacity: 0;
+  animation: fade-in-up 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--secondary);
+  color: #fff;
 }
