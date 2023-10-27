@@ -13,7 +13,7 @@ function connectDB($user, $password)
     return $db;
 }
 
-function registerUser($username, $password, $check) {
+function registerUser($username, $password, $check, $email) {
     //Check if passwords match
     if ($password != $check) {
         echo "<p>Passwords do not match, please try again</p>";
@@ -25,16 +25,52 @@ function registerUser($username, $password, $check) {
         $password = md5($password);
 
         //Form the sql statement
-        $sql = "INSERT INTO Users VALUES ('$username', '$password')";
+        $sql = "INSERT INTO Users VALUES ('$username', '$password', '$email')";
 
         //Query the db
         $result = $db->query($sql);
 
         if (!$result) {
             echo "<p>The query failed</p>";
-        } else { //Print page here
-            echo "<p>Welcome ".$username.".You have been registered</p>";
-            echo "<a href='loginPage'>login</a>";
         }
+        //Close the db Connection
+        $db->close();
+    }
+}
+
+function loginUser($username, $password) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Encrypt given password
+    $password = md5($password);
+
+    //Form sql statement
+    $sql = "SELECT * FROM Users WHERE Username='$username'";
+
+    //Query db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    //Get the result
+    $row = $result->fetch_assoc();
+    $checkUser = $row['Username'];
+    $checkPass = $row['Password'];
+    $email = $row['Email'];
+
+    //Check if match
+    if ($checkUser == $username && $checkPass == $password) {
+        // Start Session and store session variables
+        session_start();
+        $_SESSION['user'] = $username;
+        $_SESSION['email'] = $email;
+        echo "<p>Welcome ".$_SESSION['user']." you have successfully login.</p>";
+        echo "<a href='../index.html'>Home Page</a>";
+    } else {
+        echo "<p>Please try again</p>";
+        echo "<a href='../pages/login.html'>Login</p>";
     }
 }
