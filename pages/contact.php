@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+    $userEmail = $_SESSION['email'];
+} else {
+    $userEmail = "";
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -22,11 +31,11 @@
         <img src="../resource/logo.png" alt="Logo" height="35" />
       </div>
       <div class="right-elements">
-        <a href="/">HOME</a>
-        <a href="#">DINING</a>
-        <a href="#">LIVING</a>
-        <a href="#">WORKSPACE</a>
-        <a href="#">CONTACT US</a>
+          <a href="../index.html">HOME</a>
+          <a href="#">DINING</a>
+          <a href="livingPage.php">LIVING</a>
+          <a href="#">WORKSPACE</a>
+          <a href="contact.php">CONTACT US</a>
         <a>
           <img src="../resource/cartIcon.svg" height="26px" width="26px" />
         </a>
@@ -40,25 +49,25 @@
             <td><label for="name">Name</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="name" /></td>
+            <td><input type="text" class="text-box" id="name" name="name"/></td>
           </tr>
           <tr>
             <td><label for="email">Email</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="email" /></td>
+            <td><input type="text" class="text-box" id="email" value="<?php echo $userEmail?>" name="email"/></td>
           </tr>
           <tr>
             <td><label for="itemNo">Query Item</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="itemNo" /></td>
+            <td><input type="text" class="text-box" id="itemNo" name="itemNo"/></td>
           </tr>
           <tr>
             <td><label for="description">Description</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="description" /></td>
+            <td><input type="text" class="text-box" id="description" name="description"/></td>
           </tr>
         </table>
         <p style="padding: 0 0 0 250px;">
