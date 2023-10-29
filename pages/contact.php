@@ -52,7 +52,7 @@ if (isset($_SESSION['email'])) {
     </div>
   </div>
 
-  <div id="featured-collection" style="  background-image: url('../resource/contactus.png');height:100vh; bottom:0;
+  <div id="featured-collection" style="background-image: url('../resource/contactus.png');height:100vh; bottom:0;
 ">
     <div class="layout">
 

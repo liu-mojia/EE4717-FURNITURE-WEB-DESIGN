@@ -1,7 +1,7 @@
 
-<?php
-include '../php/dbFunctions.php';
-?>
+<?php print 'test'; ?>
+
+<?php include '../php/dbFunctions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@ include '../php/dbFunctions.php';
     </div>
   </div>
 
-    <div class="banner" >
+  <div class="banner" >
         <img src="../resource/livingbanner.png" />
         <div class="image-overlay"></div>
         <div class="image-text" >
