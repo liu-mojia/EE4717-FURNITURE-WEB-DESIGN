@@ -96,3 +96,69 @@ function submitQuery($name, $email, $queryItem, $des) {
     //Close the db Connection
     $db->close();
 }
+
+function createDelivery($address, $name, $email, $phoneNo)
+{
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "INSERT INTO Delivery_detail (Address, Name, Email, PhoneNo) VALUES ('$address', '$name', '$email', '$phoneNo')";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+    //Close the db Connection
+    $db->close();
+}
+
+function createOrder($orderID, $productIDs, $quantArray) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    // Counter
+    $count = 0;
+
+    foreach ($productIDs as $productID) {
+        //Form the sql statement
+        $sql = "INSERT INTO Orders VALUES ('$orderID', '$productID', '$quantArray[$count]')";
+
+        //Query the db
+        $result = $db->query($sql);
+
+        if (!$result) {
+            echo "<p>The query failed</p>";
+        }
+        // Increment the counter
+        $count++;
+    }
+    //Close the db Connection
+    $db->close();
+}
+
+function getOrderID($name) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "SELECT MAX(Order_id) FROM Delivery_detail WHERE Name='$name'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    //Get the result
+    $row = $result->fetch_assoc();
+    $orderID = $row['MAX(Order_id)'];
+
+    //Close the db Connection
+    $db->close();
+
+    return $orderID;
+}
