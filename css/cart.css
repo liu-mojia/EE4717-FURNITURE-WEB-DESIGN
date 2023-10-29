@@ -1,0 +1,22 @@
+.layout {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 65px;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  width: 75%;
+  flex-wrap: wrap;
+}
+
+.price {
+  width: 20%;
+  text-align: right;
+}
