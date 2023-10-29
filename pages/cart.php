@@ -7,7 +7,7 @@
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/cart.css" />
-    <script src="../scripts/added.js"></script>
+    <script src="../scripts/cart.js"></script>
 
 </head>
 
@@ -33,32 +33,58 @@
         <div style="width:70%">
             <div class="box" style="height:80vh" >
             <div style="padding:40px 70px 40px 70px">
-                <div class="cart-item">
-                    <div class="product-frame">
+                <div class="cart-item" productId='test1'>
+                    <div class="product-frame" >
                         <img src="../resource/living-products/test.png">
                     </div>
-                    <div class="product-details">
+                    <div class="product-details" id='productID' productId='test1'  >
                         <div class="title-s">APPLARYD, 3-seat sofa</div>
                         <div class="subTitle">Description</div>
-                        <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px">
+                        <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
                             <div class="plus-minus-input">
-                                <button class="minus">-</button>
+                                <button class="minus" onclick="">-</button>
                                 <input type="text" class="quantity" value="1">
                                 <button class="plus">+</button>
-                            </div>
-
-                            <div class="subTitle" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
+                                <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
                             REMOVE</div>
-
+                            </div>
                         </div>
-                       
                     </div>
                     <div class="product-price">
-                        <div class="title-s">
-                            $1088.90    
+                        <span>$</span>
+                        <div class="title-s" id="productPrice" productId="test1">
+                            1088.90    
                         </div>    
                     </div>
                 </div>
+                
+                <div class="cart-item" productId='test2'>
+                    <div class="product-frame" >
+                        <img src="../resource/living-products/test.png">
+                    </div>
+                    <div class="product-details" id='productID' productId='test2'  >
+                        <div class="title-s">APPLARYD, 3-seat sofa</div>
+                        <div class="subTitle">Description</div>
+                        <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
+                            <div class="plus-minus-input">
+                                <button class="minus" onclick="">-</button>
+                                <input type="text" class="quantity" value="1">
+                                <button class="plus">+</button>
+                                <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
+                            REMOVE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span>$</span>
+                        <div class="title-s" id="productPrice" productId="test2">
+                           90   
+                        </div>    
+                    </div>
+                </div>
+                
+                
+                
             </div>
 
 

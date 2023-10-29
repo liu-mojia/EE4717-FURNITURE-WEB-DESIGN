@@ -47,6 +47,8 @@
 .product-price {
   width: 10%;
   padding-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Style the plus-minus input container */
