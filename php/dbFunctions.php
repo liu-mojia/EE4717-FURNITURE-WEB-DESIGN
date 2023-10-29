@@ -162,3 +162,62 @@ function getOrderID($name) {
 
     return $orderID;
 }
+
+function displayProducts($category) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "SELECT * FROM Product WHERE Category = '$category'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    //Process each result
+    foreach($result as $row) {
+        //Obtain the relevant results
+        $productName = $row['Name'];
+        $productDes = $row['Description'];
+        $productPrice = $row['Price'];
+        $productID = $row['Product_id'];
+
+        //HTML output
+        echo "<div class=product-display id= '$productID'>";
+        echo    "<img src='../resource/living-products/".$productID.".png' alt='Product Image'>";
+        echo    "<div class='product-details'>";
+        echo    "<span>
+          $productName $productDes
+        </br>
+            $productPrice
+        </span></div></div>"; //TODO
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
+function getProductDetails($productID) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "SELECT * FROM Product WHERE Product_id = '$productID'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    $row = $result->fetch_assoc();
+
+    //Close the db Connection
+    $db->close();
+
+    return $row;
+}
