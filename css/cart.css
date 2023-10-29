@@ -20,3 +20,63 @@
   width: 20%;
   text-align: right;
 }
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.product-frame {
+  min-width: 180px;
+  height: 180px;
+  max-width: 20%;
+}
+
+.product-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Scale the image to fit the container, maintaining its aspect ratio */
+}
+
+.product-details {
+  width: 50%;
+  padding-top: 24px;
+}
+
+.product-price {
+  width: 10%;
+  padding-top: 24px;
+}
+
+/* Style the plus-minus input container */
+.plus-minus-input {
+  display: flex;
+  align-items: center;
+}
+
+/* Style the plus and minus buttons */
+.plus-minus-input button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the quantity input field */
+.plus-minus-input input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+/* Add some margin or spacing if needed */
+.plus-minus-input button.plus {
+  margin-left: 10px;
+}
+
+.plus-minus-input button.minus {
+  margin-right: 10px;
+}

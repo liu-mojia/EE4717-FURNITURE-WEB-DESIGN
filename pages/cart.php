@@ -7,6 +7,8 @@
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/cart.css" />
+    <script src="../scripts/added.js"></script>
+
 </head>
 
 <body>
@@ -30,6 +32,37 @@
       <div class="layout">
         <div style="width:70%">
             <div class="box" style="height:80vh" >
+            <div style="padding:40px 70px 40px 70px">
+                <div class="cart-item">
+                    <div class="product-frame">
+                        <img src="../resource/living-products/test.png">
+                    </div>
+                    <div class="product-details">
+                        <div class="title-s">APPLARYD, 3-seat sofa</div>
+                        <div class="subTitle">Description</div>
+                        <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px">
+                            <div class="plus-minus-input">
+                                <button class="minus">-</button>
+                                <input type="text" class="quantity" value="1">
+                                <button class="plus">+</button>
+                            </div>
+
+                            <div class="subTitle" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
+                            REMOVE</div>
+
+                        </div>
+                       
+                    </div>
+                    <div class="product-price">
+                        <div class="title-s">
+                            $1088.90    
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+
+
 
             </div>
         </div>
