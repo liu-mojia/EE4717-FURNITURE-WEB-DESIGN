@@ -7,6 +7,13 @@ if (isset($_SESSION['email'])) {
 } else {
     $userEmail = "";
 }
+
+if (!isset($_SESSION['items'])) {
+    $name = $_SESSION['buyNow'][0];
+    $quantity = $_SESSION['buyNow'][1];
+    $price = $_SESSION['buyNow'][2];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +64,8 @@ if (isset($_SESSION['email'])) {
 
     <div class="right-column">
       <h3 style="padding: 90px 0 0 0">Order Summary</h3>
-      <p>Session variables</p>
+      <?php echo "<p>$name($quantity) $$price</p>" ?>
+        <p>Delivery </p>
     </div>
   </div>
 </body>
