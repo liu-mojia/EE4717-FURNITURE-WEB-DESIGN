@@ -1,5 +1,7 @@
 
-<?php print 'test'; ?>
+<?php
+include '../php/dbFunctions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,35 +62,7 @@
       </script>
   </div>
   <div class="product-list">
-   
- 
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
-    </div>
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
-    </div>
-    
+    <?php displayProducts('living'); ?>
   </div>
 </body>
 </html>
