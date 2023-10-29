@@ -1,3 +1,6 @@
+<?php
+include '../php/emailFunction.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,11 +14,11 @@
         <img src="../resource/logo.png" alt="Logo" height="35" />
       </div>
       <div class="right-elements">
-        <a href="/">HOME</a>
+        <a href="../index.html">HOME</a>
         <a href="#">DINING</a>
-        <a href="#">LIVING</a>
+        <a href=livingPage.php>LIVING</a>
         <a href="#">WORKSPACE</a>
-        <a href="#">CONTACT US</a>
+        <a href="contact.php">CONTACT US</a>
       </div>
     </div>
 
@@ -38,7 +41,8 @@
       >
         <h3>Order Submitted</h3>
         <p>Thank you for shopping with us</p>
-        <button onclick="window.location.href = 'index.html';">
+          <?php sendEmail(); ?>
+        <button onclick="window.location.href = '../index.html';">
           Continue Browsing
         </button>
       </div>
