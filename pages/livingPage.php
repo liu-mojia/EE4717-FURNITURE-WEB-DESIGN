@@ -6,73 +6,9 @@
     <meta charset="UTF-8">
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <style>
-        #text-container{
-          display:flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content:flex-start;
-        }
-
-        .left{
-          width:10%;
-          font-size: 40px;
-          font-weight: 400;
-          margin-right: 25px;
-        }
-
-        .right{
-          font-size: 15px;
-          width:72%;
-          margin-left: 25px;
-          text-align:left;
-        }
-
-        .filter-btn{
-          padding:5px 8px 5px 8px;
-          border-radius: 5px;
-          width:fit-content;
-          border: 0.75px solid #000;
-          cursor: pointer;
-        }
-
-        .filter-dropdown {
-          display: none;
-          border-radius: 5px;
-          position: absolute;
-          background-color: #fff;
-          border: 0.5px solid #000;
-          list-style: none;
-          margin-top:40px;
-          padding: 0;
-        }
-
-        .filter-dropdown li {
-          padding: 8px;
-        }
-
-        .filter-dropdown li:hover {
-          background-color: #ccc;
-        }
-
-        .product-list{
-          padding: 60px;
-          flex-wrap: wrap; 
-          gap: 20px; 
-          display: flex;
-          flex-direction: row;
-
-        }
-
-        .product-display{
-          width: 218px;
-          height: 218px;
-          border-radius: 5px;
-          background-color: #eee552;
-        }
-
-    </style>
+    <link rel="stylesheet"  href="../css/productPage.css">
 </head>
+
 <body>
   <div class="top-bar">
     <div class="logo">
