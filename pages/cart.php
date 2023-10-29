@@ -60,34 +60,25 @@
       </script>
   </div>
   <div class="product-list">
-   
- 
     <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
+      products here!
       <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
+      APPLARYD 3-seat sofa $1,099
       </div>
     </div>
     <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
+      products here!
       <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
+      APPLARYD 3-seat sofa $1,099
       </div>
     </div>
+    <div class="product-display">
+      products here!
+      <div class="product-details">
+      APPLARYD 3-seat sofa $1,099
+      </div>
+    </div>
+    
     
   </div>
 </body>
