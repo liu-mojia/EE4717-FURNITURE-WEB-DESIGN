@@ -73,4 +73,26 @@ function loginUser($username, $password) {
         echo "<p>Please try again</p>";
         echo "<a href='../pages/login.html'>Login</p>";
     }
+    //Close the db Connection
+    $db->close();
+}
+
+function submitQuery($name, $email, $queryItem, $des) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "INSERT INTO Queries (Name, Email, QueryItem, Description) VALUES ('$name', '$email', '$queryItem', '$des')";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    } else {
+        echo "<p>Query has been successfully submitted, we will get back to you in 3 working days.</p>";
+        echo "<a href=../index.html>Home</a>";
+    }
+    //Close the db Connection
+    $db->close();
 }

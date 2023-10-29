@@ -1,4 +1,5 @@
 <?php
+//Pass session variables
 session_start();
 if (isset($_SESSION['email'])) {
     $userEmail = $_SESSION['email'];
@@ -43,7 +44,7 @@ if (isset($_SESSION['email'])) {
     </div>
 
     <div class="content">
-      <form method="post" action="../php/show_post.php" id="form">
+      <form method="post" action="../php/submitQuery.php" id="form">
         <table id="contact-table">
           <tr>
             <td><label for="name">Name</label></td>
@@ -58,10 +59,10 @@ if (isset($_SESSION['email'])) {
             <td><input type="text" class="text-box" id="email" value="<?php echo $userEmail?>" name="email"/></td>
           </tr>
           <tr>
-            <td><label for="itemNo">Query Item</label></td>
+            <td><label for="queryItem">Product Name</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="itemNo" name="itemNo"/></td>
+            <td><input type="text" class="text-box" id="queryItem" name="queryItem"/></td>
           </tr>
           <tr>
             <td><label for="description">Description</label></td>
