@@ -1,7 +1,40 @@
 
-<?php print 'test'; ?>
+<?php print 'test';
 
-<?php include '../php/dbFunctions.php'; ?>
+include '../php/dbFunctions.php';
+
+//Load session variables
+session_start();
+
+// GET the product ID from the URL
+$productID = $_GET['productID'];
+
+// Store ProductID in session
+$_SESSION['productID'] = $productID;
+$_SESSION['buyNow'] = array();
+
+$rows = getProductDetails($productID);
+
+$name = $rows['Name'];
+$des = $rows['Description'];
+$material = $rows['Material'];
+$len = $rows['Length'];
+$width = $rows['Width'];
+$height = $rows['Height'];
+$price = $rows['Price'];
+$quant = $rows['Quantity'];
+
+if ($quant >= 1) {
+    $_SESSION['buyNow'][0] = $name;
+    $_SESSION['buyNow'][1] = 1;
+    $_SESSION['buyNow'][2] = $price;
+} else {
+    unset($_SESSION['buyNow']);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,40 +70,32 @@
             <div class="right-column" style="padding:36px">
                 <div class="">
                     <div class="title">
-                    APPLARYD, 3-seat sofa
+                    <?php echo "$name, $des"?>
                     </div>
                     <div class="subTitle">
-                    Beige and Blue Macrocannage Embroidery (36 x 27.5 x 16.5 cm)
+                        <?php echo "$material ($len, $width, $height cm)"?>
                     </div>
                 </br>
 
                     <div class="title">
-                        $1099.99
+                        <?php echo "$".$price.""?>
                     </div>
                 </div>
                 </br>
                 </br>
-                <div class="btn" style="margin-bottom:12px">
-                    Purchase Now
-                </div>
-                <div class="secondary-btn">
-                    Add to Cart
-                </div>
-                </br>
-                </br>
-                </br>
-
-
-                <div class="feature">
-                    <div class="subtitle" style="margin-bottom:12px">
-                        Features
+                <a href="../php/purchaseNow.php">
+                    <div class="btn" style="margin-bottom:12px">
+                        Purchase Now
                     </div>
-                    <div class=""> 
-                        <li>size</li>
-                        <li>size</li>
-                        <li>size</li>
+                </a>
+                <a href="../php/addToCart.php">
+                    <div class="secondary-btn">
+                        Add to Cart
                     </div>
-                </div>
+                </a>
+                </br>
+                </br>
+                </br>
             </div>
         </div>
       </div>
