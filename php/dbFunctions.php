@@ -187,7 +187,7 @@ function displayProducts($category) {
 
         //HTML output
         echo "<div class=product-display id= '$productID'>";
-        echo    "<img src='../resource/living-products/".$productID.".png' alt='Product Image'>";
+        echo    "<img src='../resource/Living/".$productID.".jpg' alt='Product Image'>";
         echo    "<div class='product-details'>";
         echo    "<span>
           $productName $productDes
