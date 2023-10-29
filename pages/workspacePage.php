@@ -1,5 +1,6 @@
 
 <?php print 'test'; ?>
+<?php include '../php/dbFunctions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +32,9 @@
         <div class="image-overlay"></div>
         <div class="image-text" >
             <div id="text-container">
-              <div class="left">Living</div>
+              <div class="left">Workspace</div>
               <div style="width: 3px; height: 65px;flex-shrink: 0; background: var(--secondary, #1B0A05);"></div>
-              <div class="right">Update the heart of your home with our living room masterpieces. No matter your theme, you’ll find luxury, well-made sofas, lounge chairs, coffee tables, TV consoles and more in every style.</div>
+              <div class="right">Create an inspiring home office for remote working. Boost your productivity with our workspace furniture collection that is specially designed to to complement your work style. Discover our contemporary collection of writing desks and bookshelves now!</div>
             </div>
         </div>
     </div>
@@ -60,35 +61,7 @@
       </script>
   </div>
   <div class="product-list">
-   
- 
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
-    </div>
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
-    </div>
-    
+      <?php displayProducts('workspace'); ?>
   </div>
 </body>
 </html>
