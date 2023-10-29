@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['email'])) {
     $userEmail = $_SESSION['email'];
 } else {
-    $userEmail = "";
+    $userEmail = '';
 }
 ?>
 
@@ -14,7 +14,7 @@ if (isset($_SESSION['email'])) {
   <head>
     <meta charset="utf-8" />
     <title>Contact Us</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="../css/index.css" />
     <style>
       #contact-table {
         padding: 130px 30px 0 20px;
@@ -27,21 +27,21 @@ if (isset($_SESSION['email'])) {
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="logo">
-        <img src="../resource/logo.png" alt="Logo" height="35" />
-      </div>
-      <div class="right-elements">
-          <a href="../index.html">HOME</a>
-          <a href="#">DINING</a>
-          <a href="livingPage.php">LIVING</a>
-          <a href="#">WORKSPACE</a>
-          <a href="contact.php">CONTACT US</a>
-        <a>
-          <img src="../resource/cartIcon.svg" height="26px" width="26px" />
-        </a>
-      </div>
+  <div class="top-bar">
+    <div class="logo">
+      <img src="../resource/logo.png" alt="Logo" height="35" />
     </div>
+    <div class="right-elements">
+      <a href="../">HOME</a>
+      <a href="./diningPage.php">DINING</a>
+      <a href="./livingPage.php">LIVING</a>
+      <a href="./workspacePage.php">WORKSPACE</a>
+      <a href="./contact.php">CONTACT US</a>
+      <a>
+        <img src="../resource/cartIcon.svg" height="26px" width="26px" />
+      </a>
+    </div>
+  </div>
 
     <div class="content">
       <form method="post" action="../php/submitQuery.php" id="form">
@@ -56,7 +56,7 @@ if (isset($_SESSION['email'])) {
             <td><label for="email">Email</label></td>
           </tr>
           <tr>
-            <td><input type="text" class="text-box" id="email" value="<?php echo $userEmail?>" name="email"/></td>
+            <td><input type="text" class="text-box" id="email" value="<?php echo $userEmail; ?>" name="email"/></td>
           </tr>
           <tr>
             <td><label for="queryItem">Product Name</label></td>
