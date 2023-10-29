@@ -1,5 +1,6 @@
 
 <?php print 'test'; ?>
+<?php include '../php/dbFunctions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +32,9 @@
         <div class="image-overlay"></div>
         <div class="image-text" >
             <div id="text-container">
-              <div class="left">Living</div>
+              <div class="left">Dining</div>
               <div style="width: 3px; height: 65px;flex-shrink: 0; background: var(--secondary, #1B0A05);"></div>
-              <div class="right">Update the heart of your home with our living room masterpieces. No matter your theme, you’ll find luxury, well-made sofas, lounge chairs, coffee tables, TV consoles and more in every style.</div>
+              <div class="right">Enhance your dining experience with our luxury range of dining room furniture. Discover designer dining tables, dining chairs, sideboards and more that boast elegance and class - ideal for everyday dining and special occasions alike.</div>
             </div>
         </div>
     </div>
@@ -59,36 +60,8 @@
         }
       </script>
   </div>
-  <div class="product-list">
-   
- 
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
+    <div class="product-list">
+        <?php displayProducts('dining'); ?>
     </div>
-    <div class="product-display">
-      <img src="../resource/living-products/test.png" alt="Product Image">
-
-      <div class="product-details">
-        <span id='name'>
-          APPLARYD 3-seat sofa 
-        </span>
-        <span id='price'>
-            $1099
-        </span>
-    
-      </div>
-    </div>
-    
-  </div>
 </body>
 </html>
