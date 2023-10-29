@@ -1,4 +1,6 @@
-<html></html><!DOCTYPE html>
+
+<?php print 'test'; ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,6 +27,50 @@
           margin-left: 25px;
           text-align:left;
         }
+
+        .filter-btn{
+          padding:5px 8px 5px 8px;
+          border-radius: 5px;
+          width:fit-content;
+          border: 0.75px solid #000;
+          cursor: pointer;
+        }
+
+        .filter-dropdown {
+          display: none;
+          border-radius: 5px;
+          position: absolute;
+          background-color: #fff;
+          border: 0.5px solid #000;
+          list-style: none;
+          margin-top:40px;
+          padding: 0;
+        }
+
+        .filter-dropdown li {
+          padding: 8px;
+        }
+
+        .filter-dropdown li:hover {
+          background-color: #ccc;
+        }
+
+        .product-list{
+          padding: 60px;
+          flex-wrap: wrap; 
+          gap: 20px; 
+          display: flex;
+          flex-direction: row;
+
+        }
+
+        .product-display{
+          width: 218px;
+          height: 218px;
+          border-radius: 5px;
+          background-color: #eee552;
+        }
+
     </style>
 </head>
 <body>
@@ -44,8 +90,7 @@
     </div>
   </div>
 
-  <div class="content" >
-  <div class="banner" >
+    <div class="banner" >
         <img src="../resource/livingbanner.png" />
         <div class="image-overlay"></div>
         <div class="image-text" >
@@ -56,7 +101,47 @@
             </div>
         </div>
     </div>
-    
+    <div class="filter">
+      <div class="filter-btn" onclick="toggleDropdown()">
+        Sort
+      </div>
+      <ul class="filter-dropdown" id="filterDropdown">
+        <li>Price Ascending</li>
+        <li>Price Descending</li>
+        <li>Name Ascending</li>
+        <li>Name Descending</li>
+      </ul>
+
+      <script>
+        function toggleDropdown() {
+          var dropdown = document.getElementById("filterDropdown");
+          if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+          } else {
+            dropdown.style.display = "block";
+          }
+        }
+      </script>
+  </div>
+  <div class="product-list">
+    <div class="product-display">
+      products here!
+    </div>
+    <div class="product-display">
+      products here!
+    </div>
+    <div class="product-display">
+      products here!
+    </div>
+    <div class="product-display">
+      products here!
+    </div>
+    <div class="product-display">
+      products here!
+    </div>
+    <div class="product-display">
+      products here!
+    </div>
   </div>
 </body>
 </html>
