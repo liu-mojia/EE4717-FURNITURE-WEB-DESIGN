@@ -60,3 +60,25 @@
   border-radius: 5px;
   background-color: #eee552;
 }
+
+.product-display:hover .product-details {
+  opacity: 1; /* Make the details visible on hover */
+  display: block; /* Show the details on hover */
+}
+
+.product-details {
+  position: relative;
+  color: var(--tint);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 218px;
+  height: 218px;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  opacity: 0;
+  display: none;
+}

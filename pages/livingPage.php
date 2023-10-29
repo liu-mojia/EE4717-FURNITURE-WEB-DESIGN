@@ -62,22 +62,22 @@
   <div class="product-list">
     <div class="product-display">
       products here!
+      <div class="product-details">
+      APPLARYD 3-seat sofa $1,099
+      </div>
     </div>
     <div class="product-display">
       products here!
+      <div class="product-details">
+      APPLARYD 3-seat sofa $1,099
+      </div>
     </div>
     <div class="product-display">
-      products here!
+      <div class="product-details">
+      APPLARYD 3-seat sofa $1,099
+      </div>
     </div>
-    <div class="product-display">
-      products here!
-    </div>
-    <div class="product-display">
-      products here!
-    </div>
-    <div class="product-display">
-      products here!
-    </div>
+    
   </div>
 </body>
 </html>
