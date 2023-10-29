@@ -117,6 +117,7 @@ a {
   height: 23%;
   position: relative;
   overflow-y: clip;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -126,16 +127,17 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   background: rgba(255, 255, 255, 0.8); /* White overlay with 80% opacity */
   z-index: 1;
 }
 .image-text {
-  position: relative;
   color: #000; /* Text color */
   font-size: 18px; /* Adjust the font size as needed */
   text-align: center; /* Center text horizontally */
   z-index: 2;
   position: fixed;
   top: 2%;
-  padding: 80px;
+  width: 100%;
+  padding: 75px 0px 0 80px;
 }

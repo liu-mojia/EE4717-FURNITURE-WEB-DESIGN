@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <style>
+        #text-container{
+          display:flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content:flex-start;
+        }
+
+        .left{
+          width:10%;
+          font-size: 40px;
+          font-weight: 400;
+          margin-right: 25px;
+        }
+
+        .right{
+          font-size: 15px;
+          width:72%;
+          margin-left: 25px;
+          text-align:left;
+        }
+    </style>
 </head>
 <body>
   <div class="top-bar">
@@ -24,11 +46,14 @@
 
   <div class="content" >
   <div class="banner" >
-      ji
         <img src="../resource/livingbanner.png" />
         <div class="image-overlay"></div>
         <div class="image-text" >
-            yey??
+            <div id="text-container">
+              <div class="left">Living</div>
+              <div style="width: 3px; height: 65px;flex-shrink: 0; background: var(--secondary, #1B0A05);"></div>
+              <div class="right">Update the heart of your home with our living room masterpieces. No matter your theme, you’ll find luxury, well-made sofas, lounge chairs, coffee tables, TV consoles and more in every style.</div>
+            </div>
         </div>
     </div>
     
