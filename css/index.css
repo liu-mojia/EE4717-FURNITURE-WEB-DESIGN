@@ -151,3 +151,42 @@ a {
   width: 100%;
   padding: 25px 0px 0 80px;
 }
+
+.box {
+  border-radius: 10px;
+  border: 0.5px solid var(--primary);
+  min-width: 800px;
+  min-height: 500px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 2px 2px 0px rgba(218, 165, 32, 0.24);
+}
+
+.layout {
+  margin-top: 65px;
+  padding: 50px 80px 0 80px;
+}
+
+.title {
+  color: var(--Text, #1b0a05);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.btn {
+  border-radius: 50px;
+  background: var(--primary);
+  border: 0;
+  color: var(--tint);
+  font-family: HeadlandOne;
+  padding: 12px 24px 12px 24px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.background-cell {
+  background-size: cover; /* Scale the image to cover the cell */
+  background-position: center; /* Center the image within the cell */
+}

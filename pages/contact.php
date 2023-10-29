@@ -17,11 +17,20 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="../css/index.css" />
     <style>
       #contact-table {
-        padding: 130px 30px 0 20px;
+        padding: 50px;
         min-width: 300px;
+        display: flex;
+        align-content:center;
+        justify-content:center;
       }
       .text-box {
         width: 500px;
+      }
+   
+      td input{
+        height:36px;
+        border-radius: 5px;
+        border: 0.25px solid var(--primary);
       }
     </style>
   </head>
@@ -43,46 +52,53 @@ if (isset($_SESSION['email'])) {
     </div>
   </div>
 
-    <div class="content">
-      <form method="post" action="../php/submitQuery.php" id="form">
-        <table id="contact-table">
-          <tr>
-            <td><label for="name">Name</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text-box" id="name" name="name"/></td>
-          </tr>
-          <tr>
-            <td><label for="email">Email</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text-box" id="email" value="<?php echo $userEmail; ?>" name="email"/></td>
-          </tr>
-          <tr>
-            <td><label for="queryItem">Product Name</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text-box" id="queryItem" name="queryItem"/></td>
-          </tr>
-          <tr>
-            <td><label for="description">Description</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" class="text-box" id="description" name="description"/></td>
-          </tr>
-        </table>
-        <p style="padding: 0 0 0 250px;">
-          <input type="submit" style="padding: 20px 20px 20px 20px;" />
-        </p>
-      </form>
-    </div>
+  <div id="featured-collection" style="  background-image: url('../resource/contactus.png');height:100vh; bottom:0;
+">
+    <div class="layout">
 
-    <footer>
-      <small><i>Copyright &copy; JavaJam Coffee</i></small>
-      <br />
-      <small>
-        <a href="mailto: liumojia@liu.com"><i>liumojia@liu.com</i></a>
-      </small>
-    </footer>
+      <div class="title">
+        Contact Us
+      </div>
+    </br>
+      <div class="box">
+        <div >
+          <form method="post" action="../php/submitQuery.php" id="form">
+            <table id="contact-table">
+              <tr>
+                <td><label for="name">Name *</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" class="text-box" id="name" name="name" required/></td>
+              </tr>
+              <tr>
+                <td><label for="email" required>Email *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="email" value="<?php echo $userEmail; ?>" name="email"/></td>
+              </tr>
+              <tr>
+                <td><label for="queryItem">Product Name *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="queryItem" name="queryItem"/></td>
+              </tr>
+              <tr>
+                <td><label for="description">Description *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="description" name="description"/></td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">
+                  <input type="submit" class="btn" style="height:auto; margin-top:48px"/>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
   </body>
 </html>
