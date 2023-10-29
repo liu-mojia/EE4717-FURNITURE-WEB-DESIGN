@@ -1,12 +1,10 @@
 
-<?php
-include '../php/dbFunctions.php';
-?>
+<?php print 'test'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Living</title>
+    <title>Workspace</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
 </head>
@@ -62,7 +60,35 @@ include '../php/dbFunctions.php';
       </script>
   </div>
   <div class="product-list">
-    <?php displayProducts('living'); ?>
+   
+ 
+    <div class="product-display">
+      <img src="../resource/living-products/test.png" alt="Product Image">
+
+      <div class="product-details">
+        <span id='name'>
+          APPLARYD 3-seat sofa 
+        </span>
+        <span id='price'>
+            $1099
+        </span>
+    
+      </div>
+    </div>
+    <div class="product-display">
+      <img src="../resource/living-products/test.png" alt="Product Image">
+
+      <div class="product-details">
+        <span id='name'>
+          APPLARYD 3-seat sofa 
+        </span>
+        <span id='price'>
+            $1099
+        </span>
+    
+      </div>
+    </div>
+    
   </div>
 </body>
 </html>
