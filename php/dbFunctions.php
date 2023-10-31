@@ -168,13 +168,23 @@ function getOrderID($name)
     return $orderID;
 }
 
-function displayProducts($category)
+function displayProducts($category, $sort)
 {
     // Establish connection with db
     $db = connectDB('root', '');
 
-    //Form the sql statement
-    $sql = "SELECT * FROM Product WHERE Category = '$category'";
+    //Form the sql statement based on sorting function
+    if ($sort == 'price_accending') {
+        $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Price ASC";
+    } elseif ($sort == 'price_descending') {
+        $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Price DESC ";
+    } elseif ($sort == 'name_accending') {
+        $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Name ASC";
+    } elseif ($sort == 'name_descending') {
+        $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Name DESC ";
+    } else {
+        $sql = "SELECT * FROM Product WHERE Category = '$category'";
+    }
 
     //Query the db
     $result = $db->query($sql);

@@ -24,6 +24,7 @@ $width = $rows['Width'];
 $height = $rows['Height'];
 $price = $rows['Price'];
 $quant = $rows['Quantity'];
+$category = $rows['Category'];
 
 if ($quant >= 1) {
     $_SESSION['buyNow'][0] = $name;
@@ -32,7 +33,6 @@ if ($quant >= 1) {
 } else {
     unset($_SESSION['buyNow']);
 }
-echo var_dump($_SESSION['items']);
 echo var_dump($_SESSION['items']);
 ?>
 
@@ -66,7 +66,13 @@ echo var_dump($_SESSION['items']);
       <div class="layout">
         <div class="content">
             <div class="left-column">
-                photos
+                <?php echo '<div class="product-frame" >
+                    <img src="../resource/' .
+                    $category .
+                    '/' .
+                    $productID .
+                    '.jpg">
+                </div>'; ?>
             </div>
             <div class="right-column" style="padding:36px">
                 <div class="">
