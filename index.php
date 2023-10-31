@@ -16,7 +16,10 @@ $username = $_SESSION['username'];
         min-width: 300px;
       }
     </style>
+        <script src="scripts/confirmLogout.js"></script>
+
   </head>
+ 
 
   <body>
     <div class="top-bar">
@@ -29,6 +32,14 @@ $username = $_SESSION['username'];
         <a href="pages/livingPage.php">LIVING</a>
         <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
+        <a href="pages/admin.php">ADMIN</a>
+        <?php if (isset($username)) {
+            echo '<a style="font-size:12px" href="javascript:void(0);" onclick="confirmLogout()">Hi! ' .
+                $username .
+                '</a>';
+        } ?>
+        
+
         <a>
           <img src="./resource/cartIcon.svg" height="26px" width="26px" />
         </a>
