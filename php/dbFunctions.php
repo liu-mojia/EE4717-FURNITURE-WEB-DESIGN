@@ -195,15 +195,14 @@ function displayProducts($category)
         echo "<div class=product-display id= '$productID'>";
         echo "<img src='../resource/$category/" .
             $productID .
-            ".jpg' alt='Product Image!' onerror=\"this.src='../resource/defaultProduct.jpeg'\" >";
+            ".jpg' alt='Product Image' >";
         echo "<a href='../pages/productDetailsPage.php?productID=$productID'>";
         echo "<div class='product-details'>";
-        echo "<div><div style='display: flex;flex-wrap: wrap;'>
-          $productName, $productDes</div>
-          <div> 
-           $ $productPrice
-
-        </div></div></a></div></div>";
+        echo "<span>
+          $productName $productDes
+        </br>
+            $productPrice
+        </span></div></a></div>"; //TODO
     }
 
     //Close the db Connection

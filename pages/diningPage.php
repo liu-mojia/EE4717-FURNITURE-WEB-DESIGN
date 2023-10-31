@@ -8,6 +8,7 @@
     <title>Dining</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
+    <script src="../scripts/sort.js"></script>
 </head>
 
 <body>
@@ -42,12 +43,12 @@
       <div class="filter-btn" onclick="toggleDropdown()">
         Sort
       </div>
-      <ul class="filter-dropdown" id="filterDropdown">
-        <li>Price Ascending</li>
-        <li>Price Descending</li>
-        <li>Name Ascending</li>
-        <li>Name Descending</li>
-      </ul>
+        <ul class="filter-dropdown" id="filterDropdown">
+            <li onclick="getSort('price_accending', 'diningPage')">Price Ascending</li>
+            <li onclick="getSort('price_descending', 'diningPage')">Price Descending</li>
+            <li onclick="getSort('name_accending', 'diningPage')">Name Ascending</li>
+            <li onclick="getSort('name_descending', 'diningPage')">Name Descending</li>
+        </ul>
 
       <script>
           function toggleDropdown() {
@@ -57,7 +58,13 @@
       </script>
   </div>
     <div class="product-list">
-        <?php displayProducts('dining'); ?>
+        <?php
+        if (isset($_GET['sort'])){
+            displayProducts('dining', $_GET['sort']);
+        } else {
+            displayProducts('dining', '');
+        }
+        ?>
     </div>
 </body>
 </html>

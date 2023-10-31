@@ -1,5 +1,6 @@
 
-<?php print 'test';
+<?php
+print 'test';
 
 include '../php/dbFunctions.php';
 
@@ -11,7 +12,7 @@ $productID = $_GET['productID'];
 
 // Store ProductID in session
 $_SESSION['productID'] = $productID;
-$_SESSION['buyNow'] = array();
+$_SESSION['buyNow'] = [];
 
 $rows = getProductDetails($productID);
 
@@ -32,7 +33,7 @@ if ($quant >= 1) {
     unset($_SESSION['buyNow']);
 }
 echo var_dump($_SESSION['items']);
-
+echo var_dump($_SESSION['items']);
 ?>
 
 <!DOCTYPE html>
@@ -70,15 +71,15 @@ echo var_dump($_SESSION['items']);
             <div class="right-column" style="padding:36px">
                 <div class="">
                     <div class="title">
-                    <?php echo "$name, $des"?>
+                    <?php echo "$name, $des"; ?>
                     </div>
                     <div class="subTitle">
-                        <?php echo "$material ($len, $width, $height cm)"?>
+                        <?php echo "$material ($len, $width, $height cm)"; ?>
                     </div>
                 </br>
 
                     <div class="title">
-                        <?php echo "$".$price.""?>
+                        <?php echo '$' . $price . ''; ?>
                     </div>
                 </div>
                 </br>
