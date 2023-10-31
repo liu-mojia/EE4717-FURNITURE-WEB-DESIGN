@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const summaryProductElement=document.querySelectorAll(`[itemId="${productId}"]`);
     const summaryPrice=summaryProductElement[0].querySelector('.price');
     const summaryQty=summaryProductElement[0].querySelector('.item').querySelector('.qty');
-
-    console.log('====================================');
-    console.log(summaryQty);
-    console.log('====================================');
+    const summaryName=summaryProductElement[0].querySelector('.item').querySelector('.name');
+    console.log(summaryName.textContent);
     
 
     const quantityInput = plusMinusInput.querySelector('.quantity');
