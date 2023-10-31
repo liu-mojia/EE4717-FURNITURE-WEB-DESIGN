@@ -72,7 +72,10 @@ function loginUser($username, $password)
         echo '<p>Welcome ' .
             $_SESSION['user'] .
             ' you have successfully login.</p>';
-        echo "<a href='../index.html'>Home Page</a>";
+
+        header('refresh:1;url=../index.php');
+
+        // echo "<a href='../index.html'>Home Page</a>";
     } else {
         echo '<p>Please try again</p>';
         echo "<a href='../pages/login.html'>Login</p>";
@@ -173,11 +176,11 @@ function displayProducts($category, $sort)
     //Form the sql statement based on sorting function
     if ($sort == 'price_accending') {
         $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Price ASC";
-    } else if ($sort == 'price_descending') {
+    } elseif ($sort == 'price_descending') {
         $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Price DESC ";
-    } else if ($sort == 'name_accending') {
+    } elseif ($sort == 'name_accending') {
         $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Name ASC";
-    } else if ($sort == 'name_descending') {
+    } elseif ($sort == 'name_descending') {
         $sql = "SELECT * FROM Product WHERE Category = '$category' ORDER BY Name DESC ";
     } else {
         $sql = "SELECT * FROM Product WHERE Category = '$category'";
@@ -240,7 +243,18 @@ function getProductDetails($productID)
     return $row;
 }
 
-function addProduct($name, $des, $quant, $length, $height, $width, $weight, $material, $category, $price) {
+function addProduct(
+    $name,
+    $des,
+    $quant,
+    $length,
+    $height,
+    $width,
+    $weight,
+    $material,
+    $category,
+    $price
+) {
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -252,14 +266,15 @@ VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$weight', '$
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Close the db Connection
     $db->close();
 }
 
-function updateProductQuantity($productID, $additionalQuantity) {
+function updateProductQuantity($productID, $additionalQuantity)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -270,11 +285,9 @@ function updateProductQuantity($productID, $additionalQuantity) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Close the db Connection
     $db->close();
 }
-
-

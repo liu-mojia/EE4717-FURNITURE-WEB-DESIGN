@@ -1,9 +1,9 @@
 <?php
-include "dbFunctions.php";
+include 'dbFunctions.php';
 
 //Server side validation
 if (empty($_POST['username']) || empty($_POST['password'])) {
-    echo "<p>All Records should be filled in</p>";
+    echo '<p>All Records should be filled in</p>';
     exit();
 } else {
     //Assign superglobal variables
