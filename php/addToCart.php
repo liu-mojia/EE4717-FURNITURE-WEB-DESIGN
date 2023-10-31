@@ -12,8 +12,13 @@ $name = $rows['Name'];
 $des = $rows['Description'];
 $price = $rows['Price'];
 $quant = $rows['Quantity'];
+$len = $rows['Length'];
+$width = $rows['Width'];
+$height = $rows['Height'];
+$category = $rows['Category'];
 
-$item = array('name' => $name, 'des' => $des, 'price' => $price, 'quantity' => $quant, 'productID' => $productID);
+$item = array('name' => $name, 'des' => $des, 'price' => $price, 'quantity' => $quant, 'productID' => $productID
+, 'length' => $len, 'width' => $width, 'height' => $height, 'category' => $category);
 
 if (!isset($_SESSION['items'])) {
     $_SESSION['items'] = array();

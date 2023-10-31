@@ -31,7 +31,7 @@ if ($quant >= 1) {
 } else {
     unset($_SESSION['buyNow']);
 }
-
+echo var_dump($_SESSION['items']);
 
 ?>
 
