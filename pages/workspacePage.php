@@ -8,6 +8,7 @@
     <title>Workspace</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
+    <script src="../scripts/sort.js"></script>
 </head>
 
 <body>
@@ -42,12 +43,12 @@
       <div class="filter-btn" onclick="toggleDropdown()">
         Sort
       </div>
-      <ul class="filter-dropdown" id="filterDropdown">
-        <li>Price Ascending</li>
-        <li>Price Descending</li>
-        <li>Name Ascending</li>
-        <li>Name Descending</li>
-      </ul>
+        <ul class="filter-dropdown" id="filterDropdown">
+            <li onclick="getSort('price_accending', 'workspacePage')">Price Ascending</li>
+            <li onclick="getSort('price_descending', 'workspacePage')">Price Descending</li>
+            <li onclick="getSort('name_accending', 'workspacePage')">Name Ascending</li>
+            <li onclick="getSort('name_descending', 'workspacePage')">Name Descending</li>
+        </ul>
 
       <script>
         function toggleDropdown() {
@@ -61,7 +62,13 @@
       </script>
   </div>
   <div class="product-list">
-      <?php displayProducts('workspace'); ?>
+      <?php
+      if (isset($_GET['sort'])){
+          displayProducts('workspace', $_GET['sort']);
+      } else {
+          displayProducts('workspace', '');
+      }
+      ?>
   </div>
 </body>
 </html>

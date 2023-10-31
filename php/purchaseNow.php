@@ -9,8 +9,11 @@ if (isset($_SESSION['items'])) {
 }
 
 if (!isset($_SESSION['buyNow'])) {
-    //Redirect to delivery.php
+    //Redirect to productDetailsPage.php
     header("Location: ../pages/productDetailsPage.php");
+} else {
+    //Redirect to delivery.php
+    header("Location: ../pages/delivery.php");
 }
 
 

@@ -9,6 +9,7 @@
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
+    <script src="../scripts/sort.js"></script>
 </head>
 
 <body>
@@ -44,10 +45,10 @@
         Sort
       </div>
       <ul class="filter-dropdown" id="filterDropdown">
-        <li>Price Ascending</li>
-        <li>Price Descending</li>
-        <li>Name Ascending</li>
-        <li>Name Descending</li>
+        <li onclick="getSort('price_accending', 'livingPage')">Price Ascending</li>
+        <li onclick="getSort('price_descending', 'livingPage')">Price Descending</li>
+        <li onclick="getSort('name_accending', 'livingPage')">Name Ascending</li>
+        <li onclick="getSort('name_descending', 'livingPage')">Name Descending</li>
       </ul>
 
       <script>
@@ -62,7 +63,13 @@
       </script>
   </div>
   <div class="product-list">
-    <?php displayProducts('living'); ?>
+    <?php
+    if (isset($_GET['sort'])){
+        displayProducts('living', $_GET['sort']);
+    } else {
+        displayProducts('living', '');
+    }
+    ?>
   </div>
 </body>
 </html>
