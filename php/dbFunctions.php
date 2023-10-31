@@ -72,7 +72,10 @@ function loginUser($username, $password)
         echo '<p>Welcome ' .
             $_SESSION['user'] .
             ' you have successfully login.</p>';
-        echo "<a href='../index.html'>Home Page</a>";
+
+        header('refresh:1;url=../index.php');
+
+        // echo "<a href='../index.html'>Home Page</a>";
     } else {
         echo '<p>Please try again</p>';
         echo "<a href='../pages/login.html'>Login</p>";
@@ -230,8 +233,18 @@ function getProductDetails($productID)
     return $row;
 }
 
-
-function addProduct($name, $des, $quant, $length, $height, $width, $weight, $material, $category, $price) {
+function addProduct(
+    $name,
+    $des,
+    $quant,
+    $length,
+    $height,
+    $width,
+    $weight,
+    $material,
+    $category,
+    $price
+) {
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -243,14 +256,15 @@ VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$weight', '$
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Close the db Connection
     $db->close();
 }
 
-function updateProductQuantity($productID, $additionalQuantity) {
+function updateProductQuantity($productID, $additionalQuantity)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -261,11 +275,9 @@ function updateProductQuantity($productID, $additionalQuantity) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Close the db Connection
     $db->close();
 }
-
-
