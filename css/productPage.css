@@ -29,7 +29,6 @@
 }
 
 .filter-dropdown {
-  display: none;
   border-radius: 5px;
   position: absolute;
   background-color: #fff;
@@ -37,6 +36,14 @@
   list-style: none;
   margin-top: 40px;
   padding: 0;
+  z-index: 3;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.filter-dropdown.active {
+  display: block;
+  opacity: 1;
 }
 
 .filter-dropdown li {
@@ -45,6 +52,7 @@
 
 .filter-dropdown li:hover {
   background-color: #ccc;
+  transition: 0.1s;
 }
 
 .product-list {
