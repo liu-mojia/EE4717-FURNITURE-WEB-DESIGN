@@ -86,6 +86,7 @@ session_start();
                 <div class='subTitle' style="width:100%">
 
                 <!-- item-list is the loop, span name gets from session variable, itemid inside item list is product id -->
+                  
                     <?php
                     foreach ($_SESSION['items'] as $item) {
                         $name = $item["name"];
