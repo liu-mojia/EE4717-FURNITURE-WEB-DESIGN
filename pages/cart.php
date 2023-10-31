@@ -101,7 +101,6 @@
                 <!-- item-list is the loop, span name gets from session variable, itemid inside item list is product id -->
                     <div class="item-list" itemId="test1">
                         <div class="item" itemId="test1">
-                            
                             <span class="name" itemId="test1">Name1</span>
                             (<span class="qty" itemId="test1">1</span>)
                         </div>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -20,9 +25,9 @@
       </div>
       <div class="right-elements">
         <a href="index.html">HOME</a>
-        <a href="#">DINING</a>
+        <a href="pages/diningPage.php">DINING</a>
         <a href="pages/livingPage.php">LIVING</a>
-        <a href="#">WORKSPACE</a>
+        <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
         <a>
           <img src="./resource/cartIcon.svg" height="26px" width="26px" />

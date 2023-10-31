@@ -2,21 +2,22 @@
 
 function connectDB($user, $password)
 {
-    @ $db = new mysqli('localhost', $user, $password, 'EleganceMaison');
+    @$db = new mysqli('localhost', $user, $password, 'EleganceMaison');
 
     // Check if connection has been established
     if (mysqli_connect_errno()) {
         echo 'Error: could not connect to database. Please try again.';
-        exit;
+        exit();
     }
 
     return $db;
 }
 
-function registerUser($username, $password, $check, $email) {
+function registerUser($username, $password, $check, $email)
+{
     //Check if passwords match
     if ($password != $check) {
-        echo "<p>Passwords do not match, please try again</p>";
+        echo '<p>Passwords do not match, please try again</p>';
     } else {
         //Establish connection with the db
         $db = connectDB('root', '');
@@ -31,14 +32,15 @@ function registerUser($username, $password, $check, $email) {
         $result = $db->query($sql);
 
         if (!$result) {
-            echo "<p>The query failed</p>";
+            echo '<p>The query failed</p>';
         }
         //Close the db Connection
         $db->close();
     }
 }
 
-function loginUser($username, $password) {
+function loginUser($username, $password)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -52,7 +54,7 @@ function loginUser($username, $password) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Get the result
@@ -67,17 +69,20 @@ function loginUser($username, $password) {
         session_start();
         $_SESSION['user'] = $username;
         $_SESSION['email'] = $email;
-        echo "<p>Welcome ".$_SESSION['user']." you have successfully login.</p>";
+        echo '<p>Welcome ' .
+            $_SESSION['user'] .
+            ' you have successfully login.</p>';
         echo "<a href='../index.html'>Home Page</a>";
     } else {
-        echo "<p>Please try again</p>";
+        echo '<p>Please try again</p>';
         echo "<a href='../pages/login.html'>Login</p>";
     }
     //Close the db Connection
     $db->close();
 }
 
-function submitQuery($name, $email, $queryItem, $des) {
+function submitQuery($name, $email, $queryItem, $des)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -88,10 +93,10 @@ function submitQuery($name, $email, $queryItem, $des) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     } else {
-        echo "<p>Query has been successfully submitted, we will get back to you in 3 working days.</p>";
-        echo "<a href=../index.html>Home</a>";
+        echo '<p>Query has been successfully submitted, we will get back to you in 3 working days.</p>';
+        echo '<a href=../index.html>Home</a>';
     }
     //Close the db Connection
     $db->close();
@@ -109,13 +114,14 @@ function createDelivery($address, $name, $email, $phoneNo)
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
     //Close the db Connection
     $db->close();
 }
 
-function createOrder($orderID, $productIDs, $quantArray) {
+function createOrder($orderID, $productIDs, $quantArray)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -130,7 +136,7 @@ function createOrder($orderID, $productIDs, $quantArray) {
         $result = $db->query($sql);
 
         if (!$result) {
-            echo "<p>The query failed</p>";
+            echo '<p>The query failed</p>';
         }
         // Increment the counter
         $count++;
@@ -139,7 +145,8 @@ function createOrder($orderID, $productIDs, $quantArray) {
     $db->close();
 }
 
-function getOrderID($name) {
+function getOrderID($name)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -150,7 +157,7 @@ function getOrderID($name) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Get the result
@@ -163,7 +170,8 @@ function getOrderID($name) {
     return $orderID;
 }
 
-function displayProducts($category) {
+function displayProducts($category)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -174,11 +182,11 @@ function displayProducts($category) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     //Process each result
-    foreach($result as $row) {
+    foreach ($result as $row) {
         //Obtain the relevant results
         $productName = $row['Name'];
         $productDes = $row['Description'];
@@ -187,21 +195,25 @@ function displayProducts($category) {
 
         //HTML output
         echo "<div class=product-display id= '$productID'>";
-        echo    "<img src='../resource/$category/".$productID.".jpg' alt='Product Image' >";
-        echo    "<a href='../pages/productDetailsPage.php?productID=$productID'>";
-        echo    "<div class='product-details'>";
-        echo    "<span>
-          $productName $productDes
-        </br>
-            $productPrice
-        </span></div></a></div>"; //TODO
+        echo "<img src='../resource/$category/" .
+            $productID .
+            ".jpg' alt='Product Image' >";
+        echo "<a href='../pages/productDetailsPage.php?productID=$productID'>";
+        echo "<div class='product-details'>";
+        echo "<div><div style='display: flex;flex-wrap: wrap;'>
+          $productName, $productDes</div>
+          <div> 
+           $ $productPrice
+
+        </div></div></a></div></div>"; //TODO
     }
 
     //Close the db Connection
     $db->close();
 }
 
-function getProductDetails($productID) {
+function getProductDetails($productID)
+{
     // Establish connection with db
     $db = connectDB('root', '');
 
@@ -212,7 +224,7 @@ function getProductDetails($productID) {
     $result = $db->query($sql);
 
     if (!$result) {
-        echo "<p>The query failed</p>";
+        echo '<p>The query failed</p>';
     }
 
     $row = $result->fetch_assoc();
