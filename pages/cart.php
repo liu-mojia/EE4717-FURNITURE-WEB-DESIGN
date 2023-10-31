@@ -1,5 +1,10 @@
 
-<?php print 'test'; ?>
+<?php print 'test';
+
+// Load session variables
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,13 +38,25 @@
         <div style="width:70%">
             <div class="box" style="height:80vh" >
             <div style="padding:40px 70px 40px 70px">
-                <div class="cart-item" productId='test1'>
-                    <div class="product-frame" >
-                        <img src="../resource/living-products/test.png">
-                    </div>
-                    <div class="product-details" id='productID' productId='test1'  >
-                        <div class="title-s">APPLARYD, 3-seat sofa</div>
-                        <div class="subTitle">Description</div>
+                <?php
+                foreach ($_SESSION['items'] as $item) {
+                    $name = $item["name"];
+                    $des = $item["des"];
+                    $price = $item['price'];
+                    $maxQuantity = $item['quantity'];
+                    $productID = $item['productID'];
+                    $len = $item['length'];
+                    $width = $item['width'];
+                    $height = $item['height'];
+                    $category = $item['category'];
+
+                    echo '<div class="cart-item" productId=' . $productID . '>';
+                    echo '<div class="product-frame" >
+                        <img src="../resource/'.$category.'/' . $productID . '.jpg">
+                        </div>';
+                    echo '<div class="product-details" id="productID" productId=' . $productID . '  >';
+                    echo '<div class="title-s">' . $name . ', ' . $des . '</div>';
+                    echo '<div class="subTitle">'.$len.' x'.$width .' x'.$height.'cm</div>
                         <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
                             <div class="plus-minus-input">
                                 <button class="minus" onclick="">-</button>
@@ -52,44 +69,14 @@
                     </div>
                     <div class="product-price">
                         <span>$</span>
-                        <div class="title-s" id="productPrice" productId="test1">
-                            1088.90    
+                        <div class="title-s" id="productPrice" productId='.$productID.'>
+                            '.$price.'    
                         </div>    
                     </div>
-                </div>
-                
-                <div class="cart-item" productId='test2'>
-                    <div class="product-frame" >
-                        <img src="../resource/living-products/test.png">
-                    </div>
-                    <div class="product-details" id='productID' productId='test2'  >
-                        <div class="title-s">APPLARYD, 3-seat sofa</div>
-                        <div class="subTitle">Description</div>
-                        <div class="ops" >
-                            <div class="plus-minus-input">
-                                <button class="minus" >-</button>
-                                <input type="text" class="quantity" value="1">
-                                <button class="plus">+</button>
-                                <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
-                            REMOVE</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        $
-                        <div class="title-s" id="productPrice" productId="test2">
-                           90   
-                        </div>    
-                    </div>
-                </div>
-                
-                
-                
+                </div>';
+                }
+                ?>
             </div>
-
-
-
-
             </div>
         </div>
         <div style="width:25%; padding:50px">
@@ -99,22 +86,29 @@
                 <div class='subTitle' style="width:100%">
 
                 <!-- item-list is the loop, span name gets from session variable, itemid inside item list is product id -->
-                    <div class="item-list" itemId="test1">
-                        <div class="item" itemId="test1">
+                    <?php
+                    foreach ($_SESSION['items'] as $item) {
+                        $name = $item["name"];
+                        $des = $item["des"];
+                        $price = $item['price'];
+                        $maxQuantity = $item['quantity'];
+                        $productID = $item['productID'];
+                        $len = $item['length'];
+                        $width = $item['width'];
+                        $height = $item['height'];
+
+                        echo '<div class="item-list" itemId="' . $productID . '">
+                        <div class="item" itemId="' . $productID . '">
                             
-                            <span class="name" itemId="test1">Name1</span>
-                            (<span class="qty" itemId="test1">1</span>)
+                            <span class="name" itemId="' . $productID . '">' . $name . '</span>
+                            (<span class="qty" itemId="' . $productID . '">1</span>)
                         </div>
-                        <div class="price" itemId="test1">$1099,00</div>
+                        <div class="price" itemId="' . $productID . '">$'.$price.'</div>
                     </div>
-                    <div class="item-list" itemId="test2">
-                        <div class="item" itemId="test2">
-                            Name2
-                            (<span class="qty" itemId="test1">qty</span>)
-                        </div>
-                        <div class="price" itemId="test2">$1099,!!</div>
-                    </div>
-                    <br>
+  
+                    <br>';
+                    }
+                    ?>
                     <div class="item-list">
                         <div class="item">Delivery</div>
                         <div class="price">$10.00</div>
