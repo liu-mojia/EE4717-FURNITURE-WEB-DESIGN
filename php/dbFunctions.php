@@ -197,7 +197,7 @@ function displayProducts($category)
         echo "<div class=product-display id= '$productID'>";
         echo "<img src='../resource/$category/" .
             $productID .
-            ".jpg' alt='Product Image' >";
+            ".jpg' alt='Product Image!' onerror=\"this.src='../resource/defaultProduct.jpeg'\" >";
         echo "<a href='../pages/productDetailsPage.php?productID=$productID'>";
         echo "<div class='product-details'>";
         echo "<div><div style='display: flex;flex-wrap: wrap;'>
@@ -205,7 +205,7 @@ function displayProducts($category)
           <div> 
            $ $productPrice
 
-        </div></div></a></div></div>"; //TODO
+        </div></div></a></div></div>";
     }
 
     //Close the db Connection
