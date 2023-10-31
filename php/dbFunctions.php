@@ -125,12 +125,9 @@ function createOrder($orderID, $productIDs, $quantArray)
     // Establish connection with db
     $db = connectDB('root', '');
 
-    // Counter
-    $count = 0;
-
     foreach ($productIDs as $productID) {
         //Form the sql statement
-        $sql = "INSERT INTO Orders VALUES ('$orderID', '$productID', '$quantArray[$count]')";
+        $sql = "INSERT INTO Orders VALUES ('$orderID', '$productID', '$quantArray[$productID]')";
 
         //Query the db
         $result = $db->query($sql);
@@ -138,8 +135,6 @@ function createOrder($orderID, $productIDs, $quantArray)
         if (!$result) {
             echo '<p>The query failed</p>';
         }
-        // Increment the counter
-        $count++;
     }
     //Close the db Connection
     $db->close();
@@ -234,3 +229,43 @@ function getProductDetails($productID)
 
     return $row;
 }
+
+
+function addProduct($name, $des, $quant, $length, $height, $width, $weight, $material, $category, $price) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "INSERT INTO Product(Name, Description, Quantity, Length, Height, Width, Weight, Material, Category, Price) 
+VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$weight', '$material', '$category', '$price')";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
+function updateProductQuantity($productID, $additionalQuantity) {
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "UPDATE Product SET Quantity = Quantity + $additionalQuantity WHERE Product_id = '$productID'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo "<p>The query failed</p>";
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
+
