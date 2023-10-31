@@ -65,9 +65,9 @@
                     <div class="product-details" id='productID' productId='test2'  >
                         <div class="title-s">APPLARYD, 3-seat sofa</div>
                         <div class="subTitle">Description</div>
-                        <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
+                        <div class="ops" >
                             <div class="plus-minus-input">
-                                <button class="minus" onclick="">-</button>
+                                <button class="minus" >-</button>
                                 <input type="text" class="quantity" value="1">
                                 <button class="plus">+</button>
                                 <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="product-price">
-                        <span>$</span>
+                        $
                         <div class="title-s" id="productPrice" productId="test2">
                            90   
                         </div>    
@@ -113,7 +113,7 @@
                     <hr style="background: var(--primary);">
                     <div class="item-list">
                         <div class="item"></div>
-                        <div class="price">$1099,99</div>
+                        $<div class="price" id="totalPrice">1099,99</div>
                     </div>
                 </div>
                 <br>

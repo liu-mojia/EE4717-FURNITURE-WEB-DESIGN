@@ -48,7 +48,7 @@
   width: 10%;
   padding-top: 24px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 /* Style the plus-minus input container */
@@ -81,4 +81,11 @@
 
 .plus-minus-input button.minus {
   margin-right: 10px;
+}
+
+.ops {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 12px;
 }
