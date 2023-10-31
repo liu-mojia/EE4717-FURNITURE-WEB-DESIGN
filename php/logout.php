@@ -1,6 +1,5 @@
 <?php
-//Destroy all session variables
 session_destroy();
 
 //Redirect Home
-header("Location: ../index.html");
+header('Location: ../index.php');

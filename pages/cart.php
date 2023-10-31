@@ -1,5 +1,6 @@
 
-<?php print 'test';
+<?php
+print 'test';
 
 // Load session variables
 session_start();
@@ -38,10 +39,9 @@ session_start();
         <div style="width:70%">
             <div class="box" style="height:80vh" >
             <div style="padding:40px 70px 40px 70px">
-                <?php
-                foreach ($_SESSION['items'] as $item) {
-                    $name = $item["name"];
-                    $des = $item["des"];
+                <?php foreach ($_SESSION['items'] as $item) {
+                    $name = $item['name'];
+                    $des = $item['des'];
                     $price = $item['price'];
                     $maxQuantity = $item['quantity'];
                     $productID = $item['productID'];
@@ -52,11 +52,27 @@ session_start();
 
                     echo '<div class="cart-item" productId=' . $productID . '>';
                     echo '<div class="product-frame" >
-                        <img src="../resource/'.$category.'/' . $productID . '.jpg">
+                        <img src="../resource/' .
+                        $category .
+                        '/' .
+                        $productID .
+                        '.jpg">
                         </div>';
-                    echo '<div class="product-details" id="productID" productId=' . $productID . '  >';
-                    echo '<div class="title-s">' . $name . ', ' . $des . '</div>';
-                    echo '<div class="subTitle">'.$len.' x'.$width .' x'.$height.'cm</div>
+                    echo '<div class="product-details" id="productID" productId=' .
+                        $productID .
+                        '  >';
+                    echo '<div class="title-s">' .
+                        $name .
+                        ', ' .
+                        $des .
+                        '</div>';
+                    echo '<div class="subTitle">' .
+                        $len .
+                        ' x' .
+                        $width .
+                        ' x' .
+                        $height .
+                        'cm</div>
                         <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
                             <div class="plus-minus-input">
                                 <button class="minus" onclick="">-</button>
@@ -69,13 +85,16 @@ session_start();
                     </div>
                     <div class="product-price">
                         <span>$</span>
-                        <div class="title-s" id="productPrice" productId='.$productID.'>
-                            '.$price.'    
+                        <div class="title-s" id="productPrice" productId=' .
+                        $productID .
+                        '>
+                            ' .
+                        $price .
+                        '    
                         </div>    
                     </div>
                 </div>';
-                }
-                ?>
+                } ?>
             </div>
             </div>
         </div>
@@ -86,11 +105,9 @@ session_start();
                 <div class='subTitle' style="width:100%">
 
                 <!-- item-list is the loop, span name gets from session variable, itemid inside item list is product id -->
-                  
-                    <?php
-                    foreach ($_SESSION['items'] as $item) {
-                        $name = $item["name"];
-                        $des = $item["des"];
+                    <?php foreach ($_SESSION['items'] as $item) {
+                        $name = $item['name'];
+                        $des = $item['des'];
                         $price = $item['price'];
                         $maxQuantity = $item['quantity'];
                         $productID = $item['productID'];
@@ -98,18 +115,31 @@ session_start();
                         $width = $item['width'];
                         $height = $item['height'];
 
-                        echo '<div class="item-list" itemId="' . $productID . '">
-                        <div class="item" itemId="' . $productID . '">
+                        echo '<div class="item-list" itemId="' .
+                            $productID .
+                            '">
+                        <div class="item" itemId="' .
+                            $productID .
+                            '">
                             
-                            <span class="name" itemId="' . $productID . '">' . $name . '</span>
-                            (<span class="qty" itemId="' . $productID . '">1</span>)
+                            <span class="name" itemId="' .
+                            $productID .
+                            '">' .
+                            $name .
+                            '</span>
+                            (<span class="qty" itemId="' .
+                            $productID .
+                            '">1</span>)
                         </div>
-                        <div class="price" itemId="' . $productID . '">$'.$price.'</div>
+                        <div class="price" itemId="' .
+                            $productID .
+                            '">$' .
+                            $price .
+                            '</div>
                     </div>
   
                     <br>';
-                    }
-                    ?>
+                    } ?>
                     <div class="item-list">
                         <div class="item">Delivery</div>
                         <div class="price">$10.00</div>

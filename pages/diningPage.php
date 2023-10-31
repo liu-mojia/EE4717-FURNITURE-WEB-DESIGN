@@ -51,14 +51,10 @@
         </ul>
 
       <script>
-        function toggleDropdown() {
-          var dropdown = document.getElementById("filterDropdown");
-          if (dropdown.style.display === "block") {
-            dropdown.style.display = "none";
-          } else {
-            dropdown.style.display = "block";
+          function toggleDropdown() {
+            var dropdown = document.getElementById("filterDropdown");
+            dropdown.classList.toggle("active");
           }
-        }
       </script>
   </div>
     <div class="product-list">
