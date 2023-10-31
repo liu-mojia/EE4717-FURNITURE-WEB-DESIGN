@@ -93,17 +93,23 @@
             </div>
         </div>
         <div style="width:25%; padding:50px">
-            <div class="">
+            <div class="summary">
                 <div class="title-s">Order Summary</div>
                 <br>
                 <div class='subTitle' style="width:100%">
-                    <div class="item-list">
-                        <div class="item">testtesttesttesttesttesttest</div>
-                        <div class="price">$1099,99</div>
+                    <div class="item-list" itemId="test1">
+                        <div class="item" itemId="test1">
+                            Name1
+                            (<span class="qty" itemId="test1">1</span>)
+                        </div>
+                        <div class="price" itemId="test1">$1099,00</div>
                     </div>
-                    <div class="item-list">
-                        <div class="item">testtesttesttesttesttesttest</div>
-                        <div class="price">$1099,99</div>
+                    <div class="item-list" itemId="test2">
+                        <div class="item" itemId="test2">
+                            Name2
+                            (<span class="qty" itemId="test1">qty</span>)
+                        </div>
+                        <div class="price" itemId="test2">$1099,!!</div>
                     </div>
                     <br>
                     <div class="item-list">
