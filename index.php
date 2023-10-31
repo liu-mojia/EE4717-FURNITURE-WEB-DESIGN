@@ -42,11 +42,16 @@ $username = $_SESSION['username'];
         } ?>
         
 
+<<<<<<< HEAD
         <a>
+=======
+        <a href="pages/cart.php">
+>>>>>>> mojia
           <img src="./resource/cartIcon.svg" height="26px" width="26px" />
         </a>
       </div>
     </div>
+    
 
     <div class="content">
       <div class="left-column">
