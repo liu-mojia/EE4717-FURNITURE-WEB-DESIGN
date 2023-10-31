@@ -33,10 +33,12 @@ $username = $_SESSION['username'];
         <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
         <a href="pages/admin.php">ADMIN</a>
-        <?php if (isset($username)) {
-            echo '<a style="font-size:12px" href="javascript:void(0);" onclick="confirmLogout()">Hi! ' .
+        <?php if ($username) {
+            echo '<a style="font-size:12px;" onclick="confirmLogout()">Hi! ' .
                 $username .
                 '</a>';
+        } else {
+            echo '<a style="font-size:12px;"  href="pages/login.html">LOGIN</a>';
         } ?>
         
 

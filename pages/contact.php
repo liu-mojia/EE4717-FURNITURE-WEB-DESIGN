@@ -15,24 +15,8 @@ if (isset($_SESSION['email'])) {
     <meta charset="utf-8" />
     <title>Contact Us</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <style>
-      #contact-table {
-        padding: 50px;
-        min-width: 300px;
-        display: flex;
-        align-content:center;
-        justify-content:center;
-      }
-      .text-box {
-        width: 500px;
-      }
-   
-      td input{
-        height:36px;
-        border-radius: 5px;
-        border: 0.25px solid var(--primary);
-      }
-    </style>
+    <link rel="stylesheet" href="../css/formStyle.css" />
+    
   </head>
 
   <body>
