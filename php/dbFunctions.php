@@ -69,16 +69,12 @@ function loginUser($username, $password)
         session_start();
         $_SESSION['user'] = $username;
         $_SESSION['email'] = $email;
-        echo '<p>Welcome ' .
-            $_SESSION['user'] .
-            ' you have successfully login.</p>';
 
-        header('refresh:1;url=../index.php');
+        header('Location: ../index.php');
 
         // echo "<a href='../index.html'>Home Page</a>";
     } else {
-        echo '<p>Please try again</p>';
-        echo "<a href='../pages/login.html'>Login</p>";
+        header('Location: ../pages/login.php?login=failed');
     }
     //Close the db Connection
     $db->close();

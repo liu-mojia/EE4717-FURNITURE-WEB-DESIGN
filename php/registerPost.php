@@ -16,5 +16,5 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['chec
     registerUser($username, $password, $check, $email);
 
     echo "<p>Welcome ".$username." you have been successfully registered.</p>";
-    echo "<a href='../pages/login.html'>Login</a>";
+    echo "<a href='../pages/login.php'>Login</a>";
 }
