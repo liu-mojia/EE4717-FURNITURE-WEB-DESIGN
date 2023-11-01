@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['login'])) {
+    $failed = true;
+} else {
+    $failed = false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,11 +20,11 @@
         <img src="../resource/logo.png" alt="Logo" height="35" />
       </div>
       <div class="right-elements">
-        <a href="/">HOME</a>
-        <a href="#">DINING</a>
-        <a href="#">LIVING</a>
-        <a href="#">WORKSPACE</a>
-        <a href="#">CONTACT US</a>
+        <a href="../index.php">HOME</a>
+        <a href="diningPage.php">DINING</a>
+        <a href="livingPage.php">LIVING</a>
+        <a href="workspacePage.php">WORKSPACE</a>
+        <a href="contact.php">CONTACT US</a>
       </div>
     </div>
 
@@ -35,7 +43,7 @@
           class="box"
           style="display: flex; justify-content: center; align-items: center;"
         >
-          <form method="post" action="../php/login.php" id="form">
+          <form method="post" action="../php/loginPost.php" id="form">
             <table id="contact-table">
               <tr>
                 <td><label for="username">Username *</label></td>
@@ -65,6 +73,9 @@
                   />
                 </td>
               </tr>
+                <?php if($failed) {
+                    echo "<tr><td style='color: red'>Username or Password is incorrect</td></tr>";
+                }?>
               <tr>
                 <td style="text-align: center;">
                   <input

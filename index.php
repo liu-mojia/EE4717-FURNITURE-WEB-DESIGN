@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
+$username = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -33,12 +33,12 @@ $username = $_SESSION['username'];
         <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
         <a href="pages/admin.php">ADMIN</a>
-        <?php if ($username) {
-            echo '<a style="font-size:12px;" onclick="confirmLogout()">Hi! ' .
+        <?php if (isset($_SESSION['user'])) {
+            echo '<a style="font-size:14px;" onclick="confirmLogout()">' .
                 $username .
                 '</a>';
         } else {
-            echo '<a style="font-size:12px;"  href="pages/login.html">LOGIN</a>';
+            echo '<a style="font-size:14px;"  href="pages/login.php">LOGIN</a>';
         } ?>
         
 
