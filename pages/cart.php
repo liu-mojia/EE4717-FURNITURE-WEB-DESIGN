@@ -85,6 +85,7 @@ session_start();
                     </div>
                     <div class="product-price">
                         <span>$</span>
+
                         <div class="title-s" id="productPrice" productId=' .
                         $productID .
                         '>
@@ -92,6 +93,15 @@ session_start();
                         $price .
                         '    
                         </div>    
+
+                        <div class="productPriceQtyOne" hidden id="productPriceQtyOne" productId=' .
+                        $productID .
+                        '>
+                            ' .
+                        $price .
+                        '    
+                        </div>    
+                          
                     </div>
                 </div>';
                 } ?>

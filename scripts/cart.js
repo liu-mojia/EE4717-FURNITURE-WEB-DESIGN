@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productItem = plusMinusInput.parentElement.parentElement.parentElement;
     const productId =productItem.getAttribute('productId');
     const productPrice=productItem.querySelector('.product-price').querySelector('.title-s');
+    const productPriceQtyOne=productItem.querySelector('.product-price').querySelector('.productPriceQtyOne').textContent;
 
     const summaryProductElement=document.querySelectorAll(`[itemId="${productId}"]`);
     const summaryPrice=summaryProductElement[0].querySelector('.price');
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     plusButton.addEventListener('click', function() {
       quantityInput.value = parseInt(quantityInput.value) + 1;
       //change the first value to be price from db
-      const currPrice=calculateItemPrice(2,quantityInput.value).toFixed(2);
+      const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentValue = parseInt(quantityInput.value);
       
       //change the first value to be price from db**
-      productPrice.textContent=calculateItemPrice(2,currentValue);
+      productPrice.textContent=calculateItemPrice(productPriceQtyOne,currentValue);
       if (currentValue > 1) {
         quantityInput.value = currentValue - 1;
       }
