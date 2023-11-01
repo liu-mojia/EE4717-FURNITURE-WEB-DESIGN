@@ -15,6 +15,6 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['chec
     //Call db Function
     registerUser($username, $password, $check, $email);
 
-    echo "<p>Welcome ".$username." you have been successfully registered.</p>";
-    echo "<a href='../pages/login.php'>Login</a>";
+    //Redirect to login page
+    header('Location: ../pages/login.php');
 }
