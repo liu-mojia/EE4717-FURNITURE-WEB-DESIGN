@@ -4,6 +4,7 @@ print 'test';
 
 // Load session variables
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +81,7 @@ session_start();
                                 <button class="plus">+</button>
                                 <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
                             REMOVE</div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -90,7 +92,7 @@ session_start();
                         $productID .
                         '>
                             ' .
-                        $price .
+                        number_format($price, 2) .
                         '    
                         </div>    
 
@@ -144,7 +146,7 @@ session_start();
                         <div class="price" itemId="' .
                             $productID .
                             '">$' .
-                            $price .
+                            number_format($price, 2) .
                             '</div>
                     </div>
   
@@ -157,7 +159,7 @@ session_start();
                     <hr style="background: var(--primary);">
                     <div class="item-list">
                         <div class="item"></div>
-                        $<div class="price" id="totalPrice">1099,99</div>
+                        $<div class="price" id="totalPrice"></div>
                     </div>
                 </div>
                 <br>
