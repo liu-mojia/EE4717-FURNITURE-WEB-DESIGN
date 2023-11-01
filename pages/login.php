@@ -10,7 +10,7 @@ if (isset($_GET['login'])) {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Delivery Details</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/formStyle.css" />
   </head>

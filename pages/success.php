@@ -42,7 +42,7 @@ include '../php/emailFunction.php';
         <h3>Order Submitted</h3>
         <p>Thank you for shopping with us</p>
           <?php sendEmail(); ?>
-        <button onclick="window.location.href = '../index.html';">
+        <button onclick="window.location.href = '../index.php';">
           Continue Browsing
         </button>
       </div>

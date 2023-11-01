@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Delivery Details</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/formStyle.css" />
+    <script type ="text/javascript" src="../scripts/processRegister.js"></script>
   </head>
   <body>
     <div class="top-bar">
@@ -52,6 +53,11 @@
                 </td>
               </tr>
               <tr>
+                <td>
+                  <p id="valName" style="color: red; padding: 0; margin: 0; font-size: small; display: none">Username need to be at least 5 characters and not more than 20 characters</p>
+                </td>
+              </tr>
+              <tr>
                 <td><label for="password">Password *</label></td>
               </tr>
               <tr>
@@ -66,7 +72,12 @@
                 </td>
               </tr>
               <tr>
-                <td><label for="password">Renter Password *</label></td>
+                <td>
+                  <p id="valPassword" style="color: red; padding: 0; margin: 0; font-size: small; display: none">Passwords must be at least 8 characters long</p>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="password">Reenter Password *</label></td>
               </tr>
               <tr>
                 <td>
@@ -77,6 +88,11 @@
                     name="check"
                     required
                   />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p id="valCheck" style="color: red; padding: 0; margin: 0; font-size: small; display: none">Passwords do not match</p>
                 </td>
               </tr>
               <tr>
@@ -94,7 +110,12 @@
                 </td>
               </tr>
               <tr>
-                <td style="text-align: center;">
+                <td>
+                  <p id="valEmail" style="color: red; padding: 0; margin: 0; font-size: small; display: none">Invalid Email...</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">
                   <input
                     type="submit"
                     class="btn"
@@ -102,9 +123,11 @@
                     value="Next"
                   />
                 </td>
+              <td style="text-align: center"><input type="reset" class="btn" style="height: auto; margin-top: 48px;" id="reset" value="reset"></td>
               </tr>
             </table>
           </form>
+          <script type ="text/javascript" src="../scripts/processRegisterR.js"></script>
         </div>
       </div>
     </div>
