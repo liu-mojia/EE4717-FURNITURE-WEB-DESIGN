@@ -2,10 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const plusMinusInputs = document.querySelectorAll('.plus-minus-input');
-  // const summaryNodes = document.querySelectorAll('.summary');
   const totalSubPrice = document.querySelectorAll('#productPrice');
   const totalPriceElement = document.getElementById('totalPrice');
 
+  calculateTotalPrice();
 
 
   plusMinusInputs.forEach(function(plusMinusInput) {
@@ -25,9 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     removeButton.addEventListener('click',()=>{
       const elements = document.querySelectorAll(`[productId="${productId}"]`);
-      if (elements.length > 0) {
-        elements[0].remove();
-      }
+      elements.forEach((e)=>{
+        console.log(e);
+        summaryProductElement.forEach((item)=>{
+          item.remove();
+        })
+
+        e.remove();
+      })
 
     })
 
@@ -45,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     minusButton.addEventListener('click', function() {
       const currentValue = parseInt(quantityInput.value);
       
-
       //change the first value to be price from db**
       productPrice.textContent=calculateItemPrice(2,currentValue);
       if (currentValue > 1) {

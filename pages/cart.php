@@ -99,7 +99,7 @@ session_start();
             </div>
         </div>
         <div style="width:25%; padding:50px">
-            <div class="summary">
+            <div class="summary" onload="calculateTotalPrice()">
                 <div class="title-s">Order Summary</div>
                 <br>
                 <div class='subTitle' style="width:100%">
