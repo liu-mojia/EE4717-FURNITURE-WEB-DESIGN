@@ -2,10 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const plusMinusInputs = document.querySelectorAll('.plus-minus-input');
-  // const summaryNodes = document.querySelectorAll('.summary');
   const totalSubPrice = document.querySelectorAll('#productPrice');
   const totalPriceElement = document.getElementById('totalPrice');
 
+  calculateTotalPrice();
 
 
   plusMinusInputs.forEach(function(plusMinusInput) {
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productItem = plusMinusInput.parentElement.parentElement.parentElement;
     const productId =productItem.getAttribute('productId');
     const productPrice=productItem.querySelector('.product-price').querySelector('.title-s');
+    const productPriceQtyOne=productItem.querySelector('.product-price').querySelector('.productPriceQtyOne').textContent;
 
     const summaryProductElement=document.querySelectorAll(`[itemId="${productId}"]`);
     const summaryPrice=summaryProductElement[0].querySelector('.price');
@@ -25,16 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     removeButton.addEventListener('click',()=>{
       const elements = document.querySelectorAll(`[productId="${productId}"]`);
-      if (elements.length > 0) {
-        elements[0].remove();
-      }
+      elements.forEach((e)=>{
+        console.log(e);
+        summaryProductElement.forEach((item)=>{
+          item.remove();
+        })
+
+        e.remove();
+      })
 
     })
 
     plusButton.addEventListener('click', function() {
       quantityInput.value = parseInt(quantityInput.value) + 1;
       //change the first value to be price from db
-      const currPrice=calculateItemPrice(2,quantityInput.value).toFixed(2);
+      const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
@@ -44,14 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     minusButton.addEventListener('click', function() {
       const currentValue = parseInt(quantityInput.value);
-      
 
-      //change the first value to be price from db**
-      productPrice.textContent=calculateItemPrice(2,currentValue);
-      if (currentValue > 1) {
+      if (currentValue > 0) {
         quantityInput.value = currentValue - 1;
       }
+      const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
+
+      productPrice.textContent=currPrice;
+      summaryPrice.textContent="$"+currPrice;
+      summaryQty.textContent=quantityInput.value;
+      
       calculateTotalPrice();
+
+
     });
   });
 

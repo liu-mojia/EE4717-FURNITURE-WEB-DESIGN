@@ -85,6 +85,7 @@ session_start();
                     </div>
                     <div class="product-price">
                         <span>$</span>
+
                         <div class="title-s" id="productPrice" productId=' .
                         $productID .
                         '>
@@ -92,6 +93,15 @@ session_start();
                         $price .
                         '    
                         </div>    
+
+                        <div class="productPriceQtyOne" hidden id="productPriceQtyOne" productId=' .
+                        $productID .
+                        '>
+                            ' .
+                        $price .
+                        '    
+                        </div>    
+                          
                     </div>
                 </div>';
                 } ?>
@@ -99,7 +109,7 @@ session_start();
             </div>
         </div>
         <div style="width:25%; padding:50px">
-            <div class="summary">
+            <div class="summary" onload="calculateTotalPrice()">
                 <div class="title-s">Order Summary</div>
                 <br>
                 <div class='subTitle' style="width:100%">
