@@ -32,9 +32,13 @@ $username = $_SESSION['user'];
         <a href="pages/livingPage.php">LIVING</a>
         <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
-        <a href="pages/admin.php">ADMIN</a>
+
+        <?php if (isset($_SESSION['user']) && $username == 'admin') {
+            echo '<a href="pages/adminPage.php">ADMIN</a>';
+        } ?>
+
         <?php if (isset($_SESSION['user'])) {
-            echo '<a style="font-size:14px;" onclick="confirmLogout()">' .
+            echo '<a style="font-size:14px;" onclick="confirmLogout()">Hi! ' .
                 $username .
                 '</a>';
         } else {

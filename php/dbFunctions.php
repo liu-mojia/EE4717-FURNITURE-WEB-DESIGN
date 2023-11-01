@@ -199,9 +199,7 @@ function displayProducts($category, $sort)
 
         //HTML output
         echo "<div class=product-display id= '$productID'>";
-        echo "<img src='../resource/$category/" .
-            $productID .
-            ".jpg' alt='Product Image' >";
+        echo "<img src='../resource/$category/$productID.jpg' alt='Product Image' onerror='this.src=\"../resource/defaultProduct.jpeg\"' />";
         echo "<a href='../pages/productDetailsPage.php?productID=$productID'>";
         echo "<div class='product-details'>";
         echo "<span>

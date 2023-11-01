@@ -41,6 +41,7 @@ a {
   list-style: none;
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .top-bar {
@@ -93,6 +94,11 @@ a {
   flex-direction: row; /* Align items vertically in a column layout */
   align-items: center; /* Adjust as needed to control horizontal alignment */
   margin-right: 50px;
+}
+
+/* for top bar */
+.right-elements a:hover {
+  color: var(--primary);
 }
 
 .right-elements a {

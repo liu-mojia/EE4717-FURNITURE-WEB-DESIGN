@@ -5,11 +5,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Workspace</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
     <script src="../scripts/sort.js"></script>
-    <script src="../scripts/dropdown.js"></script>
 </head>
 
 <body>
@@ -34,9 +33,9 @@
         <div class="image-overlay"></div>
         <div class="image-text" >
             <div id="text-container">
-              <div class="left">Workspace</div>
+              <div class="left">Dining</div>
               <div style="width: 3px; height: 65px;flex-shrink: 0; background: var(--secondary, #1B0A05);"></div>
-              <div class="right">Create an inspiring home office for remote working. Boost your productivity with our workspace furniture collection that is specially designed to to complement your work style. Discover our contemporary collection of writing desks and bookshelves now!</div>
+              <div class="right">Enhance your dining experience with our luxury range of dining room furniture. Discover designer dining tables, dining chairs, sideboards and more that boast elegance and class - ideal for everyday dining and special occasions alike.</div>
             </div>
         </div>
     </div>
@@ -45,20 +44,25 @@
         Sort
       </div>
         <ul class="filter-dropdown" id="filterDropdown">
-            <li onclick="getSort('price_accending', 'workspacePage')">Price Ascending</li>
-            <li onclick="getSort('price_descending', 'workspacePage')">Price Descending</li>
-            <li onclick="getSort('name_accending', 'workspacePage')">Name Ascending</li>
-            <li onclick="getSort('name_descending', 'workspacePage')">Name Descending</li>
+            <li onclick="getSort('price_accending', 'diningPage')">Price Ascending</li>
+            <li onclick="getSort('price_descending', 'diningPage')">Price Descending</li>
+            <li onclick="getSort('name_accending', 'diningPage')">Name Ascending</li>
+            <li onclick="getSort('name_descending', 'diningPage')">Name Descending</li>
         </ul>
 
- 
+      <script>
+          function toggleDropdown() {
+            var dropdown = document.getElementById("filterDropdown");
+            dropdown.classList.toggle("active");
+          }
+      </script>
   </div>
-  <div class="product-list">
-      <?php if (isset($_GET['sort'])) {
-          displayProducts('workspace', $_GET['sort']);
-      } else {
-          displayProducts('workspace', '');
-      } ?>
-  </div>
+    <div class="product-list">
+        <?php if (isset($_GET['sort'])) {
+            displayProducts('dining', $_GET['sort']);
+        } else {
+            displayProducts('dining', '');
+        } ?>
+    </div>
 </body>
 </html>
