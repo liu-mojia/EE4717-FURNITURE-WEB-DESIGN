@@ -50,13 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     minusButton.addEventListener('click', function() {
       const currentValue = parseInt(quantityInput.value);
-      
-      //change the first value to be price from db**
-      productPrice.textContent=calculateItemPrice(productPriceQtyOne,currentValue);
-      if (currentValue > 1) {
+
+      if (currentValue > 0) {
         quantityInput.value = currentValue - 1;
       }
+      const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
+
+      productPrice.textContent=currPrice;
+      summaryPrice.textContent="$"+currPrice;
+      summaryQty.textContent=quantityInput.value;
+      
       calculateTotalPrice();
+
+
     });
   });
 
