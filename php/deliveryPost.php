@@ -14,5 +14,5 @@ if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['address']) 
     $_SESSION['orderPhoneNo'] = $_POST['phoneNo'];
 
     //Redirect to payment page
-    header("Location: ../pages/payment.html");
+    header("Location: ../pages/payment.php");
 }

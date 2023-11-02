@@ -1,3 +1,14 @@
+<?php
+//Load session variables
+session_start();
+
+//Purchase Now selected
+if (!isset($_SESSION['items'])) {
+    $name = $_SESSION['buyNow'][0];
+    $quantity = $_SESSION['buyNow'][1];
+    $price = $_SESSION['buyNow'][2];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,7 +76,11 @@
 
       <div class="right-column">
         <h3 style="padding: 90px 0 0 0;">Order Summary</h3>
-        <p>Session variables</p>
+          <?php
+          echo "<p>$name($quantity) $".number_format($price, 2)."</p>";
+          echo "<p>Delivery $10.00</p>";
+          echo "<p>Total $".number_format($price + 10, 2)."</p>";
+          ?>
       </div>
     </div>
   </body>
