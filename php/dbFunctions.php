@@ -134,6 +134,8 @@ function createOrder($orderID, $productIDs, $quantArray)
         if (!$result) {
             echo '<p>The query failed</p>';
         }
+
+        subtractProductQuantity($productID, $quantArray[$productID]);
     }
     //Close the db Connection
     $db->close();
@@ -266,13 +268,32 @@ VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$weight', '$
     $db->close();
 }
 
-function updateProductQuantity($productID, $additionalQuantity)
+function addProductQuantity($productID, $additionalQuantity)
 {
     // Establish connection with db
     $db = connectDB('root', '');
 
     //Form the sql statement
     $sql = "UPDATE Product SET Quantity = Quantity + $additionalQuantity WHERE Product_id = '$productID'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo '<p>The query failed</p>';
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
+function subtractProductQuantity($productID, $quantity)
+{
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "UPDATE Product SET Quantity = Quantity - '$quantity' WHERE Product_id = '$productID'";
 
     //Query the db
     $result = $db->query($sql);

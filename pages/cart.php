@@ -166,7 +166,7 @@ session_start();
                 <br>
                 <br>
                 <div class="btn">
-                    Checkout
+                    <a href="delivery.php">Checkout</a>
                 </div>
                 
 
