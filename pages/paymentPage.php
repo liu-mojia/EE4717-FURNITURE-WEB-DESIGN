@@ -77,9 +77,20 @@ if (!isset($_SESSION['items'])) {
       <div class="right-column">
         <h3 style="padding: 90px 0 0 0;">Order Summary</h3>
           <?php
-          echo "<p>$name($quantity) $".number_format($price, 2)."</p>";
-          echo "<p>Delivery $10.00</p>";
-          echo "<p>Total $".number_format($price + 10, 2)."</p>";
+          // Purchase Now Selected
+          if (!isset($_SESSION['items'])) {
+              echo "<p>$name($quantity) $".number_format($price, 2)."</p>";
+              echo "<p>Delivery $10.00</p>";
+              echo "<p>Total $".number_format($price + 10, 2)."</p>";
+          } else { // Cart items shown
+              $total_price = 0;
+              foreach($_SESSION['items'] as $item) {
+                  echo "<p>".$item['name']."(".$item['quantity'].") $".number_format($item['price'], 2)."</p>";
+                  $total_price += $item['price'];
+              }
+              echo "<p>Delivery $10.00</p>";
+              echo "<p>Total $".number_format( $total_price + 10, 2)."</p>";
+          }
           ?>
       </div>
     </div>
