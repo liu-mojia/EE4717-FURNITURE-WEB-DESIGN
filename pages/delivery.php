@@ -9,10 +9,13 @@ if (isset($_SESSION['email'])) {
 }
 
 //Purchase Now Selected
+//Purchase Now Selected
 if (!isset($_SESSION['items'])) {
     $name = $_SESSION['buyNow'][0];
     $quantity = $_SESSION['buyNow'][1];
     $price = $_SESSION['buyNow'][2];
+    $_SESSION['productIDs'] = [$_SESSION['productID']];
+    $_SESSION['quantityArray'] = [$_SESSION['productID'] => $quantity];
     $_SESSION['productIDs'] = [$_SESSION['productID']];
     $_SESSION['quantityArray'] = [$_SESSION['productID'] => $quantity];
 }
@@ -102,6 +105,12 @@ if (!isset($_SESSION['items'])) {
                     $width = $item['width'];
                     $height = $item['height'];
 
+                    $total_price = 0;
+                    foreach ($_SESSION['items'] as $item) {
+                        $total_price += $item['price'];
+                    }
+                    $total_price = number_format($total_price + 10, 2);
+
                     echo '<div class="item-list" itemId="' .
                         $productID .
                         '">
@@ -136,8 +145,10 @@ if (!isset($_SESSION['items'])) {
                 <hr style="background: var(--primary);">
                 <div class="item-list">
                     <div class="item"></div>
-                    $<div class="price" id="totalPrice"></div>
-                </div>
+                    $<div class="price" id="totalPrice">
+                      <?php echo $total_price; ?>
+                    </div>
+              </div>
                 <br>
                 <br>
                 <br>
@@ -148,6 +159,30 @@ if (!isset($_SESSION['items'])) {
         </div>
       </div>
       </div>
+
+      <?php
+// Purchase Now Selected
+// Purchase Now Selected
+?>if (!isset($_SESSION['items'])) {
+          echo "<p>$name($quantity) $" . number_format($price, 2) . '</p>';
+          echo '<p>Delivery $10.00</p>';
+          echo '<p>Total $' . number_format($price + 10, 2) . '</p>';
+      } else {
+          // Cart items shown
+          $total_price = 0;
+          foreach ($_SESSION['items'] as $item) {
+              echo '<p>' .
+                  $item['name'] .
+                  '(' .
+                  $item['quantity'] .
+                  ') $' .
+                  number_format($item['price'], 2) .
+                  '</p>';
+              $total_price += $item['price'];
+          }
+          echo '<p>Delivery $10.00</p>';
+          echo '<p>Total $' . number_format($total_price + 10, 2) . '</p>';
+      } ?>
 
 </body>
 </html>

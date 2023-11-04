@@ -84,6 +84,7 @@
                                 <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
                             REMOVE</div>
                             </form>
+                            </form>
                             </div>
                         </div>
                     </div>
