@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
+      updateItemQuantity(productId, quantityInput.value);
       calculateTotalPrice();
 
     });
@@ -61,10 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
+      updateItemQuantity(productId, quantityInput.value);
       
       calculateTotalPrice();
-
-
     });
   });
 
@@ -79,10 +79,25 @@ document.addEventListener('DOMContentLoaded', function() {
       
     })
 
+    // console.log("called",totalSubPrice);
+
     total=total.toFixed(2);
     totalPriceElement.textContent=`${total}`;
   }
 });
+
+function updateItemQuantity(itemId, newQuantity) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '../php/update_session.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send(`itemId=${itemId}&newQuantity=${newQuantity}`);
+
+  // Handle the response if needed
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+    }
+  };
+}
 
 
 

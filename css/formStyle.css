@@ -24,3 +24,10 @@ td input {
   border-radius: 5px;
   border: 0.25px solid var(--primary);
 }
+
+.inline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 500px;
+}

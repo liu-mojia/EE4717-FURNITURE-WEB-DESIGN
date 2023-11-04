@@ -15,11 +15,24 @@ if (!isset($_SESSION['items'])) {
     <meta charset="UTF-8" />
     <title>Payment Details</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/formStyle.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
+
     <style>
-      #payment-table {
-        padding: 0 30px 20px 20px;
-        min-width: 300px;
-      }
+        .container{
+          display:flex;
+          height:100%;
+          align-content:center;
+          justify-content:center;
+        }
+
+        .vertical-line {
+            width: 1px; /* Width of the vertical line */
+            margin:24px;
+            height: 75%; /* Height as a percentage of the container's height */
+            background-color: var(--primary); /* Color of the vertical line */
+            position: absolute;
+        }
     </style>
   </head>
   <body>
@@ -36,22 +49,25 @@ if (!isset($_SESSION['items'])) {
       </div>
     </div>
 
-    <div class="content">
-      <div class="left-column">
-        <h3 style="padding: 90px 0 0 0;">Payment Details</h3>
+    <div id="featured-collection">
+      <div class="layout">
+        <div class="box" style="display:flex; flext-direction:row; width:100%">
+          <div style="width:65%">
+        <div class="title" style="margin:40px 0 0 148px">Payment Details</div>
+
         <form method="post" action="../php/payment.php" id="form">
-          <table id="payment-table">
-            <tr>
-              <td><label for="cardNo">Card Number</label></td>
+          <table id="contact-table">
+            <tr >
+              <td ><label for="cardNo">Card Number</label></td>
             </tr>
             <tr>
-              <td><input type="text" id="cardNo" /></td>
+              <td colspan="2"><input class='text-box' type="text" id="cardNo" /></td>
             </tr>
             <tr>
-              <td><label for="cvv">CVV</label></td>
+              <td colspan="2"><label for="cvv">CVV</label></td>
             </tr>
             <tr>
-              <td><input type="text" id="cvv" /></td>
+              <td><input class='text-box' type="text" id="cvv" /></td>
             </tr>
             <tr>
               <td><label for="expiry">Date of Expiry</label></td>
@@ -59,40 +75,83 @@ if (!isset($_SESSION['items'])) {
             <tr>
               <td><input type="date" id="expiry" /></td>
             </tr>
+            <tr><td style="height:48px; width: 132px "></td></tr>
+            <tr>
+              <td colspan='1'>
+                  <div class="secondary-btn" style="width: 82px">
+                    <a href="#" onclick="history.back(); " style="color:var(--primary);">Back</a>
+                  </div>
+                  
+                </td>
+                <td colspan='1'>
+                  <input type="submit" class="btn" style="height:48px; width: 132px; font-size:20px;  "/>
+                </td>
+            </tr>
           </table>
-          <input
-            type="submit"
-            style="padding: 20px; float: right;"
-            value="Submit"
-          />
         </form>
-        <button
-          onclick="window.location.href = 'delivery.php';"
-          style="float: left; padding: 20px;"
-        >
-          Back
-        </button>
+      </div>
+      <div class="container">
+        <div class="vertical-line"></div>
       </div>
 
-      <div class="right-column">
-        <h3 style="padding: 90px 0 0 0;">Order Summary</h3>
-          <?php
-          // Purchase Now Selected
-          if (!isset($_SESSION['items'])) {
-              echo "<p>$name($quantity) $".number_format($price, 2)."</p>";
-              echo "<p>Delivery $10.00</p>";
-              echo "<p>Total $".number_format($price + 10, 2)."</p>";
-          } else { // Cart items shown
-              $total_price = 0;
-              foreach($_SESSION['items'] as $item) {
-                  echo "<p>".$item['name']."(".$item['quantity'].") $".number_format($item['price'], 2)."</p>";
-                  $total_price += $item['price'];
-              }
-              echo "<p>Delivery $10.00</p>";
-              echo "<p>Total $".number_format( $total_price + 10, 2)."</p>";
-          }
-          ?>
-      </div>
+      <div style="width:35%; padding:50px">
+          <div class="summary">
+            <div class="title-s">Order Summary</div>
+              <br>
+              <div class='subTitle' style="width:100%">
+                <?php foreach ($_SESSION['items'] as $item) {
+                    $name = $item['name'];
+                    $des = $item['des'];
+                    $price = $item['price'];
+                    $maxQuantity = $item['quantity'];
+                    $productID = $item['productID'];
+                    $len = $item['length'];
+                    $width = $item['width'];
+                    $height = $item['height'];
+
+                    echo '<div class="item-list" itemId="' .
+                        $productID .
+                        '">
+                    <div class="item" itemId="' .
+                        $productID .
+                        '">
+                        
+                        <span class="name" itemId="' .
+                        $productID .
+                        '">' .
+                        $name .
+                        '</span>
+                        (<span class="qty" itemId="' .
+                        $productID .
+                        '">1</span>)
+                    </div>
+                    <div class="price" itemId="' .
+                        $productID .
+                        '">$' .
+                        number_format($price, 2) .
+                        '</div>
+                </div>
+
+                <br>';
+                } ?>
+                <div class="item-list">
+                    <div class="item">Delivery</div>
+                    <div class="price">$10.00</div>
+                </div>
+                <hr style="background: var(--primary);">
+                <div class="item-list">
+                    <div class="item"></div>
+                    $<div class="price" id="totalPrice"></div>
+                </div>
+                <br>
+                <br>
+                <br>
+                
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>

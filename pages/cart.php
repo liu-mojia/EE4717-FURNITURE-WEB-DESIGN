@@ -1,11 +1,5 @@
 
-<?php
-print 'test';
-
-// Load session variables
-session_start();
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +32,7 @@ session_start();
   <div id="featured-collection">
       <div class="layout">
         <div style="width:70%">
-            <div class="box"  >
+            <div class="box" >
             <div style="padding:40px 70px 40px 70px">
                 <?php foreach ($_SESSION['items'] as $item) {
                     $name = $item['name'];
@@ -50,6 +44,12 @@ session_start();
                     $width = $item['width'];
                     $height = $item['height'];
                     $category = $item['category'];
+
+                    if (isset($item['quantitySelected'])) {
+                        $quantitySelected = $item['quantity'];
+                    } else {
+                        $quantitySelected = 1;
+                    }
 
                     echo '<div class="cart-item" productId=' . $productID . '>';
                     echo '<div class="product-frame" >
@@ -77,7 +77,9 @@ session_start();
                         <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" >
                             <div class="plus-minus-input">
                                 <button class="minus" onclick="">-</button>
-                                <input type="text" class="quantity" value="1">
+                                <input type="text" class="quantity" value=' .
+                        $quantitySelected .
+                        '>
                                 <button class="plus">+</button>
                                 <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
                             REMOVE</div>
@@ -149,7 +151,7 @@ session_start();
                             number_format($price, 2) .
                             '</div>
                     </div>
-  
+ 
                     <br>';
                     } ?>
                     <div class="item-list">
@@ -161,15 +163,13 @@ session_start();
                         <div class="item"></div>
                         $<div class="price" id="totalPrice"></div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="btn">
+                        <a href="delivery.php" id="checkout" class="">Checkout</a>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <div class="btn">
-                    <a href="delivery.php">Checkout</a>
-                </div>
-                
-
             </div>
         </div>
     </div>
