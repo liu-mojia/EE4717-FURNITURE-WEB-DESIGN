@@ -9,6 +9,16 @@
   width: 500px;
 }
 
+.sm-box {
+  width: 150px;
+}
+
+.box-layout {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+}
+
 td input {
   height: 36px;
   border-radius: 5px;

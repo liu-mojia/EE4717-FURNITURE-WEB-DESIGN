@@ -34,10 +34,10 @@ $username = $_SESSION['user'];
         <a href="pages/contact.php">CONTACT US</a>
         <?php if (isset($_SESSION['user']) && $username == 'admin') {
             echo '<div class="menu-item">
-            <a href="pages/adminPage.php">ADMIN</a>
+            <a >ADMIN</a>
             <div class="options">
-              <a href="pages/addNewItemPage.html">Add New Item</a>
-              <a href="#">Edit Item</a>
+              <a href="pages/addNewItemPage.php">Add New Item</a>
+              <a href="pages/adminPage.php">Edit Item</a>
             </div>
           </div>';
         } ?>

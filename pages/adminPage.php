@@ -28,10 +28,21 @@
     </div>
   </div>
     <div class="product-list">
+      <!-- TODO: for this i think we need a function to show all query -->
         <?php if (isset($_GET['sort'])) {
             displayProducts('dining', $_GET['sort']);
         } else {
             displayProducts('dining', '');
+        } ?>
+        <?php if (isset($_GET['sort'])) {
+            displayProducts('living', $_GET['sort']);
+        } else {
+            displayProducts('living', '');
+        } ?>
+        <?php if (isset($_GET['sort'])) {
+            displayProducts('workspace', $_GET['sort']);
+        } else {
+            displayProducts('workspace', '');
         } ?>
     </div>
 </body>
