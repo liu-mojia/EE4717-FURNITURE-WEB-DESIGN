@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         e.remove();
       })
+      calculateTotalPrice();
+
 
     })
 
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     minusButton.addEventListener('click', function() {
       const currentValue = parseInt(quantityInput.value);
 
-      if (currentValue > 0) {
+      if (currentValue > 1) {
         quantityInput.value = currentValue - 1;
       }
       const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);

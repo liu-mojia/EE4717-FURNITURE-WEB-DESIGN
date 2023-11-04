@@ -37,7 +37,7 @@ session_start();
   <div id="featured-collection">
       <div class="layout">
         <div style="width:70%">
-            <div class="box" style="height:80vh" >
+            <div class="box"  >
             <div style="padding:40px 70px 40px 70px">
                 <?php foreach ($_SESSION['items'] as $item) {
                     $name = $item['name'];

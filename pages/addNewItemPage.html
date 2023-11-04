@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Details</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+      #payment-table {
+        padding: 0 30px 20px 20px;
+        min-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../resource/logo.png" alt="Logo" height="35" />
+      </div>
+      <div class="right-elements">
+        <a href="/">HOME</a>
+        <a href="#">DINING</a>
+        <a href="#">LIVING</a>
+        <a href="#">WORKSPACE</a>
+        <a href="#">CONTACT US</a>
+      </div>
+    </div>
+
+    <div id="featured-collection" style="background-image: url('../resource/contactus.png');height:100vh; bottom:0;
+">
+    <div class="layout">
+
+      <div class="title">
+        Contact Us
+      </div>
+    </br>
+      <div class="box">
+        <div >
+          <form method="post" action="../php/submitQuery.php" id="form">
+            <table id="contact-table">
+              <tr>
+                <td><label for="name">Name *</label></td>
+              </tr>
+              <tr>
+                <td><input type="text" class="text-box" id="name" name="name" required/></td>
+              </tr>
+              <tr>
+                <td><label for="email" required>Email *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="email" value="<?php echo $userEmail; ?>" name="email"/></td>
+              </tr>
+              <tr>
+                <td><label for="queryItem">Product Name *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="queryItem" name="queryItem"/></td>
+              </tr>
+              <tr>
+                <td><label for="description">Description *</label></td>
+              </tr>
+              <tr>
+                <td><input required type="text" class="text-box" id="description" name="description"/></td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">
+                  <input type="submit" class="btn" style="height:auto; margin-top:48px"/>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

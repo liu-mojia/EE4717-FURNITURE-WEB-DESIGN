@@ -27,36 +27,6 @@
         </a>
     </div>
   </div>
-
-    <div class="banner" >
-        <img src="../resource/livingbanner.png" />
-        <div class="image-overlay"></div>
-        <div class="image-text" >
-            <div id="text-container">
-              <div class="left">Dining</div>
-              <div style="width: 3px; height: 65px;flex-shrink: 0; background: var(--secondary, #1B0A05);"></div>
-              <div class="right">Enhance your dining experience with our luxury range of dining room furniture. Discover designer dining tables, dining chairs, sideboards and more that boast elegance and class - ideal for everyday dining and special occasions alike.</div>
-            </div>
-        </div>
-    </div>
-    <div class="filter">
-      <div class="filter-btn" onclick="toggleDropdown()">
-        Sort
-      </div>
-        <ul class="filter-dropdown" id="filterDropdown">
-            <li onclick="getSort('price_accending', 'diningPage')">Price Ascending</li>
-            <li onclick="getSort('price_descending', 'diningPage')">Price Descending</li>
-            <li onclick="getSort('name_accending', 'diningPage')">Name Ascending</li>
-            <li onclick="getSort('name_descending', 'diningPage')">Name Descending</li>
-        </ul>
-
-      <script>
-          function toggleDropdown() {
-            var dropdown = document.getElementById("filterDropdown");
-            dropdown.classList.toggle("active");
-          }
-      </script>
-  </div>
     <div class="product-list">
         <?php if (isset($_GET['sort'])) {
             displayProducts('dining', $_GET['sort']);
