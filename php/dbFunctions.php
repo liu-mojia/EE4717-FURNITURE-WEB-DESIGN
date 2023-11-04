@@ -166,6 +166,68 @@ function getOrderID($name)
     return $orderID;
 }
 
+function adminProducts()
+{
+    $db = connectDB('root', '');
+    $sql = 'SELECT * FROM Product ';
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo '<p>The query failed</p>';
+    }
+
+    //Process each result
+    foreach ($result as $row) {
+        //Obtain the relevant results
+        $len = $row['Length'];
+        $width = $row['Width'];
+        $height = $row['Height'];
+        $name = $row['Name'];
+        $des = $row['Description'];
+        $price = $row['Price'];
+        $productID = $row['Product_id'];
+        $category = $row['Category'];
+        $quantity = $row['Quantity'];
+
+        echo "<div class='cart-item' productId=" . $productID . '>';
+        echo '<div class="product-frame" ><img src="../resource/' .
+            $category .
+            '/' .
+            $productID .
+            '.jpg"></div>';
+        echo '<div class="product-details" id="productID" productId=' .
+            $productID .
+            '  >';
+        echo "<div class='title-s'>" . $name . ', ' . $des . '</div>';
+        echo '<div class="subTitle">(' .
+            $len .
+            ' x' .
+            $width .
+            ' x' .
+            $height .
+            'cm)</div>
+            <div style="display:flex; flex-direction:row; align-items:center;margin-top:12px" > Instock: ' .
+            $quantity .
+            '
+                </div>
+            </div>
+        <div class="product-price">
+            <span>$</span>
+            <div class="title-s" id="productPrice" productId=' .
+            $productID .
+            '>' .
+            number_format($price, 2) .
+            '</div></div>
+        </div>
+        </div></div></div>';
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
 function displayProducts($category, $sort)
 {
     // Establish connection with db

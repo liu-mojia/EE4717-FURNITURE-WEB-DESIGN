@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productId =productItem.getAttribute('productId');
     const productPrice=productItem.querySelector('.product-price').querySelector('.title-s');
     const productPriceQtyOne=productItem.querySelector('.product-price').querySelector('.productPriceQtyOne').textContent;
+    const maxQty=productItem.querySelector('.product-price').querySelector('.maxQty').textContent;
 
     const summaryProductElement=document.querySelectorAll(`[itemId="${productId}"]`);
     const summaryPrice=summaryProductElement[0].querySelector('.price');
@@ -38,9 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     })
+    console.log(maxQty)
 
     plusButton.addEventListener('click', function() {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
+      quantityInput.value<=maxQty?(quantityInput.value = parseInt(quantityInput.value) + 1): window.alert('Max selection reached!');
       //change the first value to be price from db
       const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
       productPrice.textContent=currPrice;

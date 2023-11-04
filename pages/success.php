@@ -1,6 +1,5 @@
 <?php
-include '../php/emailFunction.php';
-?>
+include '../php/emailFunction.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,30 +21,31 @@ include '../php/emailFunction.php';
       </div>
     </div>
 
-    <div class="content" style="flex-direction: column;">
+    <div class="layout">
+
+
+    <div class="content" style="flex-direction: column; align-content:center; align-items:center; justify-content:center">
       <div
         class="img-container"
-        style="width: auto; height: 120px; padding: 100px 0 0 90px;"
+        style="height: 120px; "
       >
         <img src="../resource/tick.png" style="scale: 50%;" />
       </div>
       <div
         id="order-success"
-        style="
-          display: block;
-          justify-content: center;
-          align-items: center;
-          padding: 0 0 0 90px;
-          text-align: center;
-        "
+        style="display:flex;flex-direction: column;; align-content:center; align-items:center; justify-content:center" "
+
       >
-        <h3>Order Submitted</h3>
+        <div class="title">Order Submitted</div>
         <p>Thank you for shopping with us</p>
           <?php sendEmail(); ?>
-        <button onclick="window.location.href = '../index.php';">
+          <br>
+        <button onclick="window.location.href = '../index.php';" class='btn'>
           Continue Browsing
         </button>
       </div>
     </div>
+    </div>
+
   </body>
 </html>
