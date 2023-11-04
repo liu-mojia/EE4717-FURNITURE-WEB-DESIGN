@@ -78,26 +78,40 @@ document.addEventListener('DOMContentLoaded', function() {
       total+=parseFloat(subPrice.textContent);
       
     })
-
-    // console.log("called",totalSubPrice);
-
     total=total.toFixed(2);
     totalPriceElement.textContent=`${total}`;
   }
+
+  function updateItemQuantity(itemId, newQuantity) {
+    fetch('../php/update_session.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `itemId=${itemId}&newQuantity=${newQuantity}`,
+    })
+    .then(response => {
+      if (response.ok) {
+        // Request was successful, you can handle the response here if needed
+        return response.text(); // or response.json() if the response is JSON
+      } else {
+        // Handle the case where the request failed
+        console.error('Request failed with status ' + response.status);
+      }
+    })
+    .then(data => {
+      // Handle the response data here if needed
+      console.log('Received data: ' + data);
+    })
+    .catch(error => {
+      // Handle any other errors that occurred
+      console.error('An error occurred:', error);
+    });
+  }
+  
 });
 
-function updateItemQuantity(itemId, newQuantity) {
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', '../php/update_session.php', true);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.send(`itemId=${itemId}&newQuantity=${newQuantity}`);
 
-  // Handle the response if needed
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-    }
-  };
-}
 
 
 

@@ -116,7 +116,9 @@ if (!isset($_SESSION['items'])) {
                         '</span>
                         (<span class="qty" itemId="' .
                         $productID .
-                        '">1</span>)
+                        '">' .
+                        $maxQuantity .
+                        '</span>)
                     </div>
                     <div class="price" itemId="' .
                         $productID .

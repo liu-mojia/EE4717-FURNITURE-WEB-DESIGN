@@ -84,7 +84,7 @@ if (!isset($_SESSION['items'])) {
                   
                 </td>
                 <td colspan='1'>
-                  <input type="submit" class="btn" style="height:48px; width: 132px; font-size:20px;  "/>
+                  <input type="submit" class="btn" style="height:48px; width: 132px;"/>
                 </td>
             </tr>
           </table>

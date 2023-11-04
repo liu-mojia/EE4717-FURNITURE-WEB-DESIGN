@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Living</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/cart.css" />
     <script src="../scripts/cart.js"></script>
