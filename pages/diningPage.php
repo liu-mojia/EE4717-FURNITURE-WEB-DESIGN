@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
     <script src="../scripts/sort.js"></script>
+    <script src="../scripts/dropdown.js"></script>
 </head>
 
 <body>
@@ -49,22 +50,13 @@
             <li onclick="getSort('name_accending', 'diningPage')">Name Ascending</li>
             <li onclick="getSort('name_descending', 'diningPage')">Name Descending</li>
         </ul>
-
-      <script>
-          function toggleDropdown() {
-            var dropdown = document.getElementById("filterDropdown");
-            dropdown.classList.toggle("active");
-          }
-      </script>
   </div>
     <div class="product-list">
-        <?php
-        if (isset($_GET['sort'])){
+        <?php if (isset($_GET['sort'])) {
             displayProducts('dining', $_GET['sort']);
         } else {
             displayProducts('dining', '');
-        }
-        ?>
+        } ?>
     </div>
 </body>
 </html>

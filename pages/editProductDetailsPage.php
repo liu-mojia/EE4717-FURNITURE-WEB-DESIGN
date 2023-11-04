@@ -33,6 +33,7 @@ if ($quant >= 1) {
 } else {
     unset($_SESSION['buyNow']);
 }
+//echo var_dump($_SESSION['items']);
 ?>
 
 <!DOCTYPE html>
@@ -62,21 +63,19 @@ if ($quant >= 1) {
   </div>
 
   <div id="featured-collection">
-      <div class="content">
-          <div class="left-column" >
-              <?php echo '<div class="product-frame" >
+      <div class="layout">
+        <div class="content">
+            <div class="left-column">
+                <?php echo '<div class="product-frame" >
                     <img src="../resource/' .
-                  $category .
-                  '/' .
-                  $productID .
-                  '.jpg">
-                    </div>'; ?>
-                <div>
-                    <img src="../resource/productDetail1.png" alt="Product Detail 1">
-                </div>
+                    $category .
+                    '/' .
+                    $productID .
+                    '.jpg">
+                </div>'; ?>
             </div>
-            <div class="layout">
-                <div style="margin-top:60px">
+            <div class="right-column" style="padding:36px">
+                <div class="">
                     <div class="title">
                     <?php echo "$name, $des"; ?>
                     </div>
@@ -104,6 +103,7 @@ if ($quant >= 1) {
                 </br>
                 </br>
                 </br>
+            </div>
         </div>
       </div>
   </div>

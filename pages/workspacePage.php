@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
     <script src="../scripts/sort.js"></script>
+    <script src="../scripts/dropdown.js"></script>
 </head>
 
 <body>
@@ -50,25 +51,14 @@
             <li onclick="getSort('name_descending', 'workspacePage')">Name Descending</li>
         </ul>
 
-      <script>
-        function toggleDropdown() {
-          var dropdown = document.getElementById("filterDropdown");
-          if (dropdown.style.display === "block") {
-            dropdown.style.display = "none";
-          } else {
-            dropdown.style.display = "block";
-          }
-        }
-      </script>
+ 
   </div>
   <div class="product-list">
-      <?php
-      if (isset($_GET['sort'])){
+      <?php if (isset($_GET['sort'])) {
           displayProducts('workspace', $_GET['sort']);
       } else {
           displayProducts('workspace', '');
-      }
-      ?>
+      } ?>
   </div>
 </body>
 </html>

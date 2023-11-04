@@ -12,7 +12,7 @@ $username = $_SESSION['user'];
     <link rel="stylesheet" href="css/index.css" />
     <style>
       #featured-collection {
-        padding: 500px 50px 250px 50px;
+        padding: 380px 60px 250px 60px;
         min-width: 300px;
       }
     </style>
@@ -27,14 +27,23 @@ $username = $_SESSION['user'];
         <img src="resource/logo.png" alt="Logo" height="35" />
       </div>
       <div class="right-elements">
-        <a href="index.html">HOME</a>
+        <a href="index.php">HOME</a>
         <a href="pages/diningPage.php">DINING</a>
         <a href="pages/livingPage.php">LIVING</a>
         <a href="pages/workspacePage.php">WORKSPACE</a>
         <a href="pages/contact.php">CONTACT US</a>
-        <a href="pages/admin.php">ADMIN</a>
+        <?php if (isset($_SESSION['user']) && $username == 'admin') {
+            echo '<div class="menu-item">
+            <a >ADMIN</a>
+            <div class="options">
+              <a href="pages/addNewItemPage.php">Add New Item</a>
+              <a href="pages/adminPage.php">Edit Item</a>
+            </div>
+          </div>';
+        } ?>
+
         <?php if (isset($_SESSION['user'])) {
-            echo '<a style="font-size:14px;" onclick="confirmLogout()">' .
+            echo '<a style="font-size:14px;" onclick="confirmLogout()">Hi! ' .
                 $username .
                 '</a>';
         } else {
@@ -64,12 +73,15 @@ $username = $_SESSION['user'];
           <div style="font-size: 40px;">
             FEATURED COLLECTION
           </div>
+          <br>
           <p>
             Discover curated elegance at our luxury furniture store. Explore
             handpicked collections that define opulence, style, and
             sophistication. Elevate your living space with the finest in
             contemporary design.
           </p>
+          <br>
+          <br>
           <hr class="hr-line" />
         </div>
       </div>

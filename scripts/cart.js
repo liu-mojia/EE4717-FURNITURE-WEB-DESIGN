@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         e.remove();
       })
+      calculateTotalPrice();
+
 
     })
 
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
+      updateItemQuantity(productId, quantityInput.value);
       calculateTotalPrice();
 
     });
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     minusButton.addEventListener('click', function() {
       const currentValue = parseInt(quantityInput.value);
 
-      if (currentValue > 0) {
+      if (currentValue > 1) {
         quantityInput.value = currentValue - 1;
       }
       const currPrice=calculateItemPrice(productPriceQtyOne,quantityInput.value).toFixed(2);
@@ -59,10 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
       productPrice.textContent=currPrice;
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
+      updateItemQuantity(productId, quantityInput.value);
       
       calculateTotalPrice();
-
-
     });
   });
 
@@ -76,11 +78,40 @@ document.addEventListener('DOMContentLoaded', function() {
       total+=parseFloat(subPrice.textContent);
       
     })
-
     total=total.toFixed(2);
     totalPriceElement.textContent=`${total}`;
   }
+
+  function updateItemQuantity(itemId, newQuantity) {
+    fetch('../php/update_session.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `itemId=${itemId}&newQuantity=${newQuantity}`,
+    })
+    .then(response => {
+      if (response.ok) {
+        // Request was successful, you can handle the response here if needed
+        return response.text(); // or response.json() if the response is JSON
+      } else {
+        // Handle the case where the request failed
+        console.error('Request failed with status ' + response.status);
+      }
+    })
+    .then(data => {
+      // Handle the response data here if needed
+      console.log('Received data: ' + data);
+    })
+    .catch(error => {
+      // Handle any other errors that occurred
+      console.error('An error occurred:', error);
+    });
+  }
+  
 });
+
+
 
 
 

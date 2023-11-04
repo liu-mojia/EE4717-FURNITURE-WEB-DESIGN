@@ -41,6 +41,7 @@ a {
   list-style: none;
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .top-bar {
@@ -93,6 +94,47 @@ a {
   flex-direction: row; /* Align items vertically in a column layout */
   align-items: center; /* Adjust as needed to control horizontal alignment */
   margin-right: 50px;
+}
+
+/* for top bar */
+.right-elements a:hover {
+  color: var(--primary);
+}
+
+.menu-item {
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 128px;
+  background-color: #333;
+  flex-direction: column;
+  padding: 10px;
+  margin-left: 12px;
+  margin-top: 0;
+}
+
+.menu-item:hover .options {
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.options a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  width: 96px;
+  transition: color 0.3s;
+}
+
+.options a:hover {
+  color: var(--primary);
 }
 
 .right-elements a {
@@ -157,6 +199,7 @@ a {
   border: 0.5px solid var(--primary);
   min-width: 800px;
   min-height: 500px;
+  height: max-content;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 2px 2px 0px rgba(218, 165, 32, 0.24);
 }
@@ -186,6 +229,8 @@ a {
   border: 0;
   color: var(--tint);
   padding: 12px 24px 12px 24px;
+  font-size: 20px;
+  font-family: 'Headland One', serif;
   font-size: 20px;
   font-weight: 400;
   cursor: pointer;
