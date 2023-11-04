@@ -108,6 +108,11 @@ if (!isset($_SESSION['items'])) {
                     $len = $item['length'];
                     $width = $item['width'];
                     $height = $item['height'];
+                    $total_price = 0;
+                    foreach ($_SESSION['items'] as $item) {
+                        $total_price += $item['price'];
+                    }
+                    $total_price = number_format($total_price + 10, 2);
 
                     echo '<div class="item-list" itemId="' .
                         $productID .
@@ -141,7 +146,9 @@ if (!isset($_SESSION['items'])) {
                 <hr style="background: var(--primary);">
                 <div class="item-list">
                     <div class="item"></div>
-                    $<div class="price" id="totalPrice"></div>
+                    $<div class="price" id="totalPrice">
+                      <?php echo $total_price; ?>
+                    </div>
                 </div>
                 <br>
                 <br>

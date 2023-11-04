@@ -106,6 +106,13 @@
                         $price .
                         '    
                         </div>    
+                        <div class="maxQty" hidden id="maxQty" productId=' .
+                        $productID .
+                        '>
+                            ' .
+                        $maxQuantity .
+                        '    
+                        </div>    
                           
                     </div>
                 </div>';

@@ -1,5 +1,5 @@
 
-<?php print 'test'; ?>
+<?php  ?>
 <?php include '../php/dbFunctions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +7,12 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet"  href="../css/productPage.css">
+    <link rel="stylesheet" href="../css/cart.css" />
     <script src="../scripts/sort.js"></script>
 </head>
 
 <body>
+<div >
   <div class="top-bar">
     <div class="logo">
       <img src="../resource/logo.png" alt="Logo" height="35" />
@@ -23,27 +24,15 @@
       <a href="./workspacePage.php">WORKSPACE</a>
       <a href="./contact.php">CONTACT US</a>
       <a>
-          <img src="../resource/cartIcon.svg" height="26px" width="26px" />
-        </a>
+        <img src="../resource/cartIcon.svg" height="26px" width="26px" />
+      </a>
     </div>
   </div>
-    <div class="product-list">
-      <!-- TODO: for this i think we need a function to show all query -->
-        <?php if (isset($_GET['sort'])) {
-            displayProducts('dining', $_GET['sort']);
-        } else {
-            displayProducts('dining', '');
-        } ?>
-        <?php if (isset($_GET['sort'])) {
-            displayProducts('living', $_GET['sort']);
-        } else {
-            displayProducts('living', '');
-        } ?>
-        <?php if (isset($_GET['sort'])) {
-            displayProducts('workspace', $_GET['sort']);
-        } else {
-            displayProducts('workspace', '');
-        } ?>
+  <div class="layout">
+  <div  style="width:100%; ">
+      <?php adminProducts(); ?>
     </div>
+    </div>
+  </div>
 </body>
 </html>
