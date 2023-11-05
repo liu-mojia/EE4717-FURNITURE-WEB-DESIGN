@@ -10,12 +10,7 @@ if (
 
     foreach ($_SESSION['items'] as $key => &$item) {
         if ($item['productID'] == $itemId) {
-            if ($newQuantity == 0) {
-                // Remove the item if the new quantity is zero
-                unset($_SESSION['items'][$key]);
-            } else {
-                $item['quantity'] = $newQuantity;
-            }
+            $item['quantitySelected'] = $newQuantity;
             break;
         }
     }

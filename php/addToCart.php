@@ -17,8 +17,9 @@ $width = $rows['Width'];
 $height = $rows['Height'];
 $category = $rows['Category'];
 
-$item = array('name' => $name, 'des' => $des, 'price' => $price, 'quantity' => $quant, 'productID' => $productID
-, 'length' => $len, 'width' => $width, 'height' => $height, 'category' => $category);
+$item = array('name' => $name, 'des' => $des, 'price' => $price, 'maxQuant' => $quant, 'productID' => $productID
+, 'length' => $len, 'width' => $width, 'height' => $height, 'category' => $category, 'quantitySelected' => 1);
+
 
 if (!isset($_SESSION['items'])) {
     $_SESSION['items'] = array();
