@@ -260,7 +260,7 @@ function displayProducts($category, $sort)
         //Obtain the relevant results
         $productName = $row['Name'];
         $productDes = $row['Description'];
-        $productPrice = $row['Price'];
+        $productPrice = number_format($row['Price'], 2);
         $productID = $row['Product_id'];
 
         //HTML output
@@ -271,7 +271,7 @@ function displayProducts($category, $sort)
         echo "<span>
           $productName $productDes
         </br>
-            $productPrice
+           <span> $ $productPrice</span>
         </span></div></a></div>"; //TODO
     }
 
