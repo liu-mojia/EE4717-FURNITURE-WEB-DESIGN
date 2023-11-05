@@ -73,7 +73,7 @@ if ($quant >= 1) {
                     $category .
                     '/' .
                     $productID .
-                    '.jpg">
+                    '.jpg "  onerror="this.src=\"../resource/defaultProduct.jpeg\"">
                 </div>'; ?>
             </div>
             <div class="right-column" >

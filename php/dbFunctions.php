@@ -196,7 +196,8 @@ function adminProducts()
             $category .
             '/' .
             $productID .
-            '.jpg"></div>';
+            '.jpg" onerror="this.src=\'../resource/defaultProduct.jpeg\' "
+            ></div>';
         echo '<div class="product-details" id="productID" productId=' .
             $productID .
             '  >';
