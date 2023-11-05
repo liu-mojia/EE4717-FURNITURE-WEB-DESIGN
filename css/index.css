@@ -261,3 +261,22 @@ a {
   font-weight: 400;
   line-height: normal;
 }
+
+.admin {
+  display: inline;
+  transition: width 2s;
+}
+
+.logout {
+  display: none;
+}
+
+.admin:hover .username {
+  display: none;
+  opacity: 0;
+  width: 0;
+}
+
+.admin:hover .logout {
+  display: inline;
+}

@@ -34,7 +34,7 @@ $username = $_SESSION['user'];
         <a href="pages/contact.php">CONTACT US</a>
         <?php if (isset($_SESSION['user']) && $username == 'admin') {
             echo '<div class="menu-item">
-            <a >ADMIN</a>
+            <a href="pages/adminPage.php">ADMIN</a>
             <div class="options">
               <a href="pages/addNewItemPage.php">Add New Item</a>
               <a href="pages/adminPage.php">Edit Item</a>
@@ -43,9 +43,13 @@ $username = $_SESSION['user'];
         } ?>
 
         <?php if (isset($_SESSION['user'])) {
-            echo '<a style="font-size:14px;" onclick="confirmLogout()">Hi! ' .
+            echo '<div><a class="admin" onclick="confirmLogout()">
+                <span class="username">Hi! ' .
                 $username .
-                '</a>';
+                '</span> <span class="logout">Logout</span>
+                </a>
+                </div>
+                ';
         } else {
             echo '<a style="font-size:14px;"  href="pages/login.php">LOGIN</a>';
         } ?>
