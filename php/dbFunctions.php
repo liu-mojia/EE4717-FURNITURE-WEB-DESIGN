@@ -124,10 +124,12 @@ function createOrder($orderID, $productIDs, $quantArray)
     // Establish connection with db
     $db = connectDB('root', '');
 
+    echo "I am here";
     foreach ($productIDs as $productID) {
         //Form the sql statement
         $sql = "INSERT INTO Orders VALUES ('$orderID', '$productID', '$quantArray[$productID]')";
-
+        echo $sql;
+        echo $quantArray[$productID];
         //Query the db
         $result = $db->query($sql);
 

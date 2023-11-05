@@ -16,6 +16,10 @@ if (!isset($_SESSION['items'])) {
     $price = $_SESSION['buyNow'][2];
     $productID = $_SESSION['productID'];
 }
+
+$_SESSION['productIDs'] = array();
+$_SESSION['quantityArray'] = array();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,6 +134,8 @@ if (!isset($_SESSION['items'])) {
                         $width = $item['width'];
                         $height = $item['height'];
                         $selectedQuantity = $item['quantitySelected'];
+                        array_push($_SESSION['productIDs'], $productID);
+                        $_SESSION['quantityArray'] [$productID] = $selectedQuantity;
 
                         $total_price = 0;
                         foreach ($_SESSION['items'] as $item) {
