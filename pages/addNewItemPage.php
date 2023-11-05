@@ -17,7 +17,7 @@ $username = $_SESSION['user'];
         <img src="../resource/logo.png" alt="Logo" height="35" />
       </div>
       <div class="right-elements">
-        <a href="../index.php">HOME</a>
+        <a href="../">HOME</a>
         <a href="./diningPage.php">DINING</a>
         <a href="./livingPage.php">LIVING</a>
         <a href="./workspacePage.php">WORKSPACE</a>

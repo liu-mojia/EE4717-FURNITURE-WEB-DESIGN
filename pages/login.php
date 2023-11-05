@@ -1,9 +1,13 @@
 <?php
+session_start();
+$username = $_SESSION['user'];
+
 if (isset($_GET['login'])) {
     $failed = true;
 } else {
     $failed = false;
-} ?>
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +23,7 @@ if (isset($_GET['login'])) {
       <img src="../resource/logo.png" alt="Logo" height="35" />
     </div>
     <div class="right-elements">
-      <a href="index.php">HOME</a>
+      <a href="../">HOME</a>
       <a href="./diningPage.php">DINING</a>
       <a href="./livingPage.php">LIVING</a>
       <a href="./workspacePage.php">WORKSPACE</a>
@@ -43,7 +47,7 @@ if (isset($_GET['login'])) {
               </div>
               ';
       } else {
-          echo '<a style="font-size:14px;"  href="pages/login.php">LOGIN</a>';
+          echo '<a style="font-size:14px;"  href="./login.php">LOGIN</a>';
       } ?>
       <a href="./cart.php">
         <img src="../resource/cartIcon.svg" height="26px" width="26px" />
