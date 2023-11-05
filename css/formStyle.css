@@ -27,7 +27,11 @@ td input {
 
 .inline {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   width: 500px;
+}
+
+.inline input {
+  width: 30%;
 }

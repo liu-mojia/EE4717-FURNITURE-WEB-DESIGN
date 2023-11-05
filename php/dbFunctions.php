@@ -212,6 +212,7 @@ function adminProducts()
             $quantity .
             '
                 </div>
+            <div class="secondary-btn">edit</div>
             </div>
         <div class="product-price">
             <span>$</span>

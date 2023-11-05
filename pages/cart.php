@@ -38,6 +38,7 @@
                     $name = $item['name'];
                     $des = $item['des'];
                     $price = $item['price'];
+                    // todo: differentiate max and selected qty
                     $maxQuantity = $item['quantity'];
                     $productID = $item['productID'];
                     $len = $item['length'];
