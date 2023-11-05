@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.remove();
       })
       calculateTotalPrice(productPrice.textContent);
+      updateItemQuantity(itemId, 0);
 
 
 
