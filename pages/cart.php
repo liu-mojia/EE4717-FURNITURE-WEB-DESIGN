@@ -12,6 +12,8 @@ $username = $_SESSION['user'];
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/cart.css" />
     <script src="../scripts/cart.js"></script>
+    <script src="../scripts/confirmLogout.js"></script>
+
 
 </head>
 

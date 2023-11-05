@@ -10,6 +10,8 @@ $username = $_SESSION['user'];
     <title>Add New Item</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/formStyle.css" />
+    <script src="../scripts/confirmLogout.js"></script>
+
   </head>
   <body>
   <div class="top-bar">

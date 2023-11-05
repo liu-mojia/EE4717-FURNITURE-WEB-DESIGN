@@ -10,6 +10,8 @@ $username = $_SESSION['user'];
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/formStyle.css" />
     <script type ="text/javascript" src="../scripts/processRegister.js"></script>
+    <script src="../scripts/confirmLogout.js"></script>
+
   </head>
   <body>
     <div class="top-bar">

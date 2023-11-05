@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     removeButton.addEventListener('click',()=>{
       const elements = document.querySelectorAll(`[productId="${productId}"]`);
-      calculateTotalPrice(productPrice.textContent);
 
       elements.forEach((e)=>{
         console.log(e);
@@ -36,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         e.remove();
       })
+      calculateTotalPrice(productPrice.textContent);
+
 
 
     })

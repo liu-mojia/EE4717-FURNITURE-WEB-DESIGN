@@ -14,6 +14,8 @@ $username = $_SESSION['user'];
     <link rel="stylesheet"  href="../css/productPage.css">
     <script src="../scripts/sort.js"></script>
     <script src="../scripts/dropdown.js"></script>
+    <script src="../scripts/confirmLogout.js"></script>
+
 </head>
 
 <body>
