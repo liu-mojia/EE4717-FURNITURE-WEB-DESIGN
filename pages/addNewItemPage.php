@@ -41,7 +41,7 @@ $username = $_SESSION['user'];
                 </div>
                 ';
         } else {
-            echo '<a style="font-size:14px;"  href="pages/login.php">LOGIN</a>';
+            echo '<a style="font-size:14px;"  href="./login.php">LOGIN</a>';
         } ?>
         <a href="./cart.php">
           <img src="../resource/cartIcon.svg" height="26px" width="26px" />

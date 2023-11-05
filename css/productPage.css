@@ -109,11 +109,24 @@
   justify-content: center;
 }
 
+.product-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-details-display {
+  float: left;
+  min-width: 140px;
+  width: 60%;
+  max-height: 100vh; /* Set a maximum height for the container */
+  overflow: hidden;
+}
+
 .product-frame img {
   left: 0;
   float: left;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   object-fit: contain; /* Scale the image to fit the container, maintaining its aspect ratio */
 }

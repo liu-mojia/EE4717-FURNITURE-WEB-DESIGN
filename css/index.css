@@ -64,11 +64,17 @@ a {
   align-items: center;
   justify-content: center;
 }
+
 .content {
   display: flex;
   flex-direction: row;
   height: 100vh;
   overflow-y: clip;
+}
+
+.scrollable-content {
+  max-height: 100%; /* Set a maximum height for scrollability */
+  overflow: auto; /* Enable scrolling when content overflows the maximum height */
 }
 
 .logo {
