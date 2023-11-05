@@ -62,19 +62,16 @@ $username = $_SESSION['user'];
                     $name = $item['name'];
                     $des = $item['des'];
                     $price = $item['price'];
-                    // todo: differentiate max and selected qty
-                    $maxQuantity = $item['quantity'];
+                    $maxQuantity = $item['maxQuant'];
                     $productID = $item['productID'];
                     $len = $item['length'];
                     $width = $item['width'];
                     $height = $item['height'];
                     $category = $item['category'];
 
-                    if (isset($item['quantitySelected'])) {
-                        $quantitySelected = $item['quantity'];
-                    } else {
-                        $quantitySelected = 1;
-                    }
+                    //Set default quantity selected
+                    $item['quantitySelected'] = 1;
+                    $quantitySelected = $item['quantitySelected'];
 
                     echo '<div class="cart-item" productId=' . $productID . '>';
                     echo '<div class="product-frame" >
@@ -199,9 +196,11 @@ $username = $_SESSION['user'];
                     <br>
                     <br>
                     <br>
-                    <div class="btn">
-                        <a href="delivery.php" id="checkout" class="">Checkout</a>
-                    </div>
+                    <a href="delivery.php" id="checkout" class="">
+                        <div class="btn">
+                            Checkout
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
