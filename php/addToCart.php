@@ -20,6 +20,7 @@ $category = $rows['Category'];
 $item = array('name' => $name, 'des' => $des, 'price' => $price, 'maxQuant' => $quant, 'productID' => $productID
 , 'length' => $len, 'width' => $width, 'height' => $height, 'category' => $category, 'quantitySelected' => 1);
 
+
 if (!isset($_SESSION['items'])) {
     $_SESSION['items'] = array();
     array_push($_SESSION['items'], $item);

@@ -77,6 +77,7 @@ if (!isset($_SESSION['items'])) {
                     $category = $item['category'];
 
                     //Set default quantity selected
+                    $item['quantitySelected'] = 1;
                     $quantitySelected = $item['quantitySelected'];
 
                     echo '<div class="cart-item" productId=' . $productID . '>';
