@@ -8,18 +8,18 @@ if (
     $itemId = $_POST['itemId'];
     $newQuantity = $_POST['newQuantity'];
 
-    foreach ($_SESSION['items'] as &$item) {
+    foreach ($_SESSION['items'] as $key => &$item) {
         if ($item['productID'] == $itemId) {
-            $item['quantity'] = $newQuantity;
+            if ($newQuantity == 0) {
+                // Remove the item if the new quantity is zero
+                unset($_SESSION['items'][$key]);
+            } else {
+                $item['quantity'] = $newQuantity;
+            }
             break;
         }
     }
-
-    // Output a success message here, if needed
     echo 'Received newQuantity: ' . $newQuantity;
 } else {
-    // Handle the case where itemId or newQuantity is not set in the POST request
     echo 'itemId or newQuantity not provided in the POST request';
 }
-
-header('Location: ../index.php');

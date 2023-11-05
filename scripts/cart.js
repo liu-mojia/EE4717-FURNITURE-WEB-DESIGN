@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
       calculateTotalPrice(productPrice.textContent);
       updateItemQuantity(itemId, 0);
 
-
-
     })
 
     plusButton.addEventListener('click', function() {
