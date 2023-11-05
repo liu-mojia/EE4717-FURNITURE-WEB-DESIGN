@@ -10,7 +10,7 @@ if (
 
     foreach ($_SESSION['items'] as &$item) {
         if ($item['productID'] == $itemId) {
-            $item['quantity'] = $newQuantity;
+            $item['quantitySelected'] = $newQuantity;
             break;
         }
     }
