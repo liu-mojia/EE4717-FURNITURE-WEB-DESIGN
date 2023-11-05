@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const totalSubPrice = document.querySelectorAll('#productPrice');
   const totalPriceElement = document.getElementById('totalPrice');
 
-  calculateTotalPrice();
+  calculateTotalPrice(0);
 
 
   plusMinusInputs.forEach(function(plusMinusInput) {
@@ -27,19 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     removeButton.addEventListener('click',()=>{
       const elements = document.querySelectorAll(`[productId="${productId}"]`);
+      calculateTotalPrice(productPrice.textContent);
+
       elements.forEach((e)=>{
         console.log(e);
         summaryProductElement.forEach((item)=>{
           item.remove();
         })
-
         e.remove();
       })
-      calculateTotalPrice();
 
 
     })
-    console.log(maxQty)
 
     plusButton.addEventListener('click', function() {
       quantityInput.value<=maxQty?(quantityInput.value = parseInt(quantityInput.value) + 1): window.alert('Max selection reached!');
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
       updateItemQuantity(productId, quantityInput.value);
-      calculateTotalPrice();
+      calculateTotalPrice(0);
 
     });
 
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       summaryQty.textContent=quantityInput.value;
       updateItemQuantity(productId, quantityInput.value);
       
-      calculateTotalPrice();
+      calculateTotalPrice(0);
     });
   });
 
@@ -74,12 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
     return parseFloat(price)*parseFloat(qty).toFixed(2);
   }
 
-  function calculateTotalPrice(){
+  function calculateTotalPrice(deduction){
     let total=10;
     totalSubPrice.forEach((subPrice)=>{
       total+=parseFloat(subPrice.textContent);
       
     })
+    total=total-deduction;
     total=total.toFixed(2);
     totalPriceElement.textContent=`${total}`;
   }

@@ -64,11 +64,17 @@ a {
   align-items: center;
   justify-content: center;
 }
+
 .content {
   display: flex;
   flex-direction: row;
   height: 100vh;
   overflow-y: clip;
+}
+
+.scrollable-content {
+  max-height: 100%; /* Set a maximum height for scrollability */
+  overflow: auto; /* Enable scrolling when content overflows the maximum height */
 }
 
 .logo {
@@ -198,7 +204,7 @@ a {
   border-radius: 10px;
   border: 0.5px solid var(--primary);
   min-width: 800px;
-  min-height: 500px;
+  min-height: 100%;
   height: max-content;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 2px 2px 0px rgba(218, 165, 32, 0.24);
@@ -206,7 +212,7 @@ a {
 
 .layout {
   margin-top: 65px;
-  padding: 50px 80px 0 80px;
+  padding: 50px 80px 12px 80px;
 }
 
 .title {
