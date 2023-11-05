@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         e.remove();
       })
-      calculateTotalPrice(productPrice.textContent);
-      updateItemQuantity(itemId, 0);
+      updateTotal(-productPrice.textContent);
+
+      updateItemQuantity(productId, 0);
 
     })
 
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
       summaryPrice.textContent="$"+currPrice;
       summaryQty.textContent=quantityInput.value;
       updateItemQuantity(productId, quantityInput.value);
-      calculateTotalPrice(0);
+      updateTotal(productPriceQtyOne);
+
 
     });
 
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
       summaryQty.textContent=quantityInput.value;
       updateItemQuantity(productId, quantityInput.value);
       
-      calculateTotalPrice(0);
+      updateTotal(-productPriceQtyOne);
     });
   });
 
@@ -80,6 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
       
     })
     total=total-deduction;
+    total=total.toFixed(2);
+    totalPriceElement.textContent=`${total}`;
+  }
+
+  function updateTotal(change){
+    let total=parseInt(totalPriceElement.textContent);
+    console.log(total);
+
+    total=total+parseInt(change);
     total=total.toFixed(2);
     totalPriceElement.textContent=`${total}`;
   }

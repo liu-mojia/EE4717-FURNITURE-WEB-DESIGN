@@ -213,6 +213,7 @@ a {
 .layout {
   margin-top: 65px;
   padding: 50px 80px 12px 80px;
+  min-height: 90%;
 }
 
 .title {
