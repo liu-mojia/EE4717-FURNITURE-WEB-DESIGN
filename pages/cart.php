@@ -2,6 +2,11 @@
 <?php
 session_start();
 $username = $_SESSION['user'];
+
+if (!isset($_SESSION['items'])) {
+    header("Location: cartEmpty.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +77,6 @@ $username = $_SESSION['user'];
                     $category = $item['category'];
 
                     //Set default quantity selected
-                    $item['quantitySelected'] = 1;
                     $quantitySelected = $item['quantitySelected'];
 
                     echo '<div class="cart-item" productId=' . $productID . '>';
@@ -105,8 +109,9 @@ $username = $_SESSION['user'];
                         $quantitySelected .
                         '>
                                 <button class="plus">+</button>
-                                <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
-                            REMOVE</div>
+                            <div class="removeBtn" style="color:var(--primary); cursor:pointer;  margin-left: 12px;">
+                            REMOVE
+                            </div>
                             </form>
                             </form>
                             </div>

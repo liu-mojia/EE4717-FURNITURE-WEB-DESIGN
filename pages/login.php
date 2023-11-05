@@ -118,7 +118,7 @@ if (isset($_GET['login'])) {
               <tr>
                 <td style="text-align: center; height: 100px;">
                   <a
-                    href="register.html"
+                    href="register.php"
                     style="
                       color: var(--primary);
                       text-align: center;
