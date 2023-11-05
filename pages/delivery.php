@@ -129,6 +129,7 @@ if (!isset($_SESSION['items'])) {
                         $len = $item['length'];
                         $width = $item['width'];
                         $height = $item['height'];
+                        $selectedQuantity = $item['quantitySelected'];
 
                         $total_price = 0;
                         foreach ($_SESSION['items'] as $item) {
@@ -151,7 +152,7 @@ if (!isset($_SESSION['items'])) {
                         (<span class="qty" itemId="' .
                             $productID .
                             '">' .
-                            $maxQuantity .
+                            $selectedQuantity .
                             '</span>)
                     </div>
                     <div class="price" itemId="' .

@@ -136,6 +136,7 @@ if (!isset($_SESSION['items'])) {
                     $len = $item['length'];
                     $width = $item['width'];
                     $height = $item['height'];
+                    $selectedQuantity = $item['quantitySelected'];
                     $total_price = 0;
                     foreach ($_SESSION['items'] as $item) {
                         $total_price += $item['price'];
@@ -156,7 +157,7 @@ if (!isset($_SESSION['items'])) {
                         '</span>
                         (<span class="qty" itemId="' .
                         $productID .
-                        '">1</span>)
+                        '">'.$selectedQuantity.'</span>)
                     </div>
                     <div class="price" itemId="' .
                         $productID .
