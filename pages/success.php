@@ -10,6 +10,8 @@ $username = $_SESSION['user'];
     <meta charset="UTF-8" />
     <title>Order Success</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <script src="../scripts/confirmLogout.js"></script>
+
   </head>
   <body>
   <div class="top-bar">

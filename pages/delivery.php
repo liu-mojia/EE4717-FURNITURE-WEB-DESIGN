@@ -29,6 +29,8 @@ if (!isset($_SESSION['items'])) {
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/formStyle.css" />
     <link rel="stylesheet" href="../css/cart.css" />
+    <script src="../scripts/confirmLogout.js"></script>
+
 
     <style>
         .container{

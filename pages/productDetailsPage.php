@@ -43,6 +43,8 @@ if ($quant >= 1) {
     <title>Living</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
+    <script src="../scripts/confirmLogout.js"></script>
+
 </head>
 
 <body>
