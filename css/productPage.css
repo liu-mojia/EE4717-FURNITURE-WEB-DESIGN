@@ -118,3 +118,27 @@
   overflow: hidden;
   object-fit: contain; /* Scale the image to fit the container, maintaining its aspect ratio */
 }
+
+.edit-product input {
+  height: 36px;
+  border-radius: 5px;
+  width: 100%;
+  border: 0.25px solid var(--primary);
+  color: var(--Text, #1b0a05);
+  font-size: 18px;
+  font-family: 'Headland One', serif;
+  margin-bottom: 12px;
+}
+
+.diamension {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: space-between; /* or use "space-between" for different spacing */
+}
+
+.edit-diamension {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
