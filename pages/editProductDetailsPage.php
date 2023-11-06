@@ -88,18 +88,17 @@ if ($quant >= 1) {
   </div>
 
   <div id="featured-collection">
-      <div class="layout">
-        <div class="content">
-            <div class="left-column">
+  <div class="product-content">
+            <div class="product-details-display" >
                 <?php echo '<div class="product-frame" >
-                    <img src="../resource/' .
+                        <img src="../resource/' .
                     $category .
                     '/' .
                     $productID .
-                    '.jpg "  onerror="this.src=\"../resource/defaultProduct.jpeg\"">
-                </div>'; ?>
+                    '.jpg">
+                        </div>'; ?>
             </div>
-            <div class="right-column" >
+            <div class="layout">
                 <div class="">
                     <div class="">
 
@@ -133,7 +132,7 @@ if ($quant >= 1) {
                             <input required name="quant" type="text" id="quant" value="<?php echo $quant; ?>"/>
                         </div>
                         <br>
-                        <div class="btn" style="margin-bottom: 12px">
+                        <div  style="margin-bottom: 12px; width:100%; display:flex; flex-direction: column" >
                             <input type="submit" class="btn" value="Update Product details">
                         </div>
                     </form>
