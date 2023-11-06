@@ -41,7 +41,7 @@ if ($quant >= 1) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Living</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet"  href="../css/productPage.css">
     <link rel="stylesheet"  href="../css/formStyle.css">
@@ -136,6 +136,13 @@ if ($quant >= 1) {
                             <input type="submit" class="btn" value="Update Product details">
                         </div>
                     </form>
+
+                    <div  style="margin-bottom: 12px; width:100%; display:flex; flex-direction: column" >
+                            <!-- <input type="submit" class="secondary-btn" value="Remove Product"> -->
+                            <?php echo '<a href="../php/removeProduct.php?productID=' .
+                                $productID .
+                                '" class="secondary-btn">Remove Product</a>'; ?>
+                    </div>
                     </div>
                 </br>
                 </div>

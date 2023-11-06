@@ -247,6 +247,7 @@ a {
   border-radius: 50px;
   border: 1px solid var(--primary);
   background: #fff;
+  font-family: 'Headland One', serif;
   color: var(--primary);
   padding: 12px 24px 12px 24px;
   font-size: 20px;
