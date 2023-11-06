@@ -206,7 +206,13 @@ $_SESSION['quantityArray'] = array();
                 <div class="item-list">
                     <div class="item"></div>
                     $<div class="price" id="totalPrice">
-                      <?php echo $total_price; ?>
+                      <?php
+                      if (isset($_SESSION['items'])) {
+                          echo $total_price;
+                      } else {
+                          echo number_format($price + 10, 2);
+                      }
+                      ?>
                     </div>
               </div>
                 <br>

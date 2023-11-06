@@ -4,7 +4,7 @@ session_start();
 $username = $_SESSION['user'];
 
 if (!isset($_SESSION['items'])) {
-    header('Location: cartEmpty.php');
+    header('Location: ../pages/cartEmpty.php');
 }
 ?>
 
