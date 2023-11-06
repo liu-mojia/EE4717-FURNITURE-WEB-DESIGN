@@ -7,8 +7,9 @@ $username = $_SESSION['user'];
 //Purchase Now selected
 if (!isset($_SESSION['items'])) {
     $name = $_SESSION['buyNow'][0];
-    $quantity = $_SESSION['buyNow'][1];
+    $selectedQuantity = $_SESSION['buyNow'][1];
     $price = $_SESSION['buyNow'][2];
+    $productID = $_SESSION['productID'];
 }
 ?>
 <!DOCTYPE html>
@@ -127,22 +128,50 @@ if (!isset($_SESSION['items'])) {
             <div class="title-s">Order Summary</div>
               <br>
               <div class='subTitle' style="width:100%">
-                <?php foreach ($_SESSION['items'] as $item) {
-                    $name = $item['name'];
-                    $des = $item['des'];
-                    $price = $item['price'];
-                    $maxQuantity = $item['quantity'];
-                    $productID = $item['productID'];
-                    $len = $item['length'];
-                    $width = $item['width'];
-                    $height = $item['height'];
-                    $selectedQuantity = $item['quantitySelected'];
-                    $total_price = 0;
+                <?php
+                if (isset($_SESSION['items'])) {
                     foreach ($_SESSION['items'] as $item) {
-                        $total_price += $item['price'];
-                    }
-                    $total_price = number_format($total_price + 10, 2);
+                        $name = $item['name'];
+                        $des = $item['des'];
+                        $price = $item['price'];
+                        $maxQuantity = $item['quantity'];
+                        $productID = $item['productID'];
+                        $len = $item['length'];
+                        $width = $item['width'];
+                        $height = $item['height'];
+                        $selectedQuantity = $item['quantitySelected'];
+                        $total_price = 0;
+                        foreach ($_SESSION['items'] as $item) {
+                            $total_price += $item['price'];
+                        }
+                        $total_price = number_format($total_price + 10, 2);
 
+                        echo '<div class="item-list" itemId="' .
+                            $productID .
+                            '">
+                    <div class="item" itemId="' .
+                            $productID .
+                            '">
+                        
+                        <span class="name" itemId="' .
+                            $productID .
+                            '">' .
+                            $name .
+                            '</span>
+                        (<span class="qty" itemId="' .
+                            $productID .
+                            '">'.$selectedQuantity.'</span>)
+                    </div>
+                    <div class="price" itemId="' .
+                            $productID .
+                            '">$' .
+                            number_format($price, 2) .
+                            '</div>
+                </div>
+
+                <br>';
+                    }
+                } else {
                     echo '<div class="item-list" itemId="' .
                         $productID .
                         '">
@@ -167,6 +196,7 @@ if (!isset($_SESSION['items'])) {
                 </div>
 
                 <br>';
+
                 } ?>
                 <div class="item-list">
                     <div class="item">Delivery</div>
@@ -176,7 +206,13 @@ if (!isset($_SESSION['items'])) {
                 <div class="item-list">
                     <div class="item"></div>
                     $<div class="price" id="totalPrice">
-                      <?php echo $total_price; ?>
+                        <?php
+                        if (isset($_SESSION['items'])) {
+                            echo $total_price;
+                        } else {
+                            echo number_format($price + 10, 2);
+                        }
+                        ?>
                     </div>
                 </div>
                 <br>
