@@ -70,7 +70,7 @@ $username = $_SESSION['user'];
                 <td><input type="text" class="text-box" id="name" name="name" required/></td>
               </tr>
               <tr>
-                <td><label for="description" required>Description *</label></td>
+                <td><label for="description">Description *</label></td>
               </tr>
               <tr>
                 <td><input required type="text" class="text-box" id="description" name="description"/></td>

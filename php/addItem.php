@@ -11,6 +11,20 @@ $material = $_POST['material'];
 $category = $_POST['category'];
 $price = $_POST['price'];
 
-addProduct($name, $des, $quantity, $length, $height, $width, $material, $category, $price);
+addProduct(
+    $name,
+    $des,
+    $quantity,
+    $length,
+    $height,
+    $width,
+    $material,
+    $category,
+    $price
+);
+?>
 
-header("Location: ../pages/addNewItemPage.php");
+<script>
+    window.location.href = '../pages/addNewItemPage.php';
+  alert('Product added successfully!');
+</script>
