@@ -13,7 +13,7 @@ $username = $_SESSION['user'];
     <link rel="stylesheet" href="../css/cart.css" />
     <script src="../scripts/sort.js"></script>
     <script src="../scripts/confirmLogout.js"></script>
-
+    <script src="../scripts/editQuantNPrice.js"></script>
 </head>
 
 <body>
@@ -33,7 +33,7 @@ $username = $_SESSION['user'];
           <a href="./adminPage.php">ADMIN</a>
           <div class="options">
             <a href="./addNewItemPage.php">Add New Item</a>
-            <a href="./adminPage.php">Edit Item</a>
+            <a href="./adminPage.php">Edit Products</a>
           </div>
         </div>';
       } ?>

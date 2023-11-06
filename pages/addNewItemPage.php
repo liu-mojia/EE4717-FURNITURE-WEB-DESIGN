@@ -61,8 +61,7 @@ $username = $_SESSION['user'];
     </br>
       <div class="box">
         <div >
-            <!-- TODO:  add new item -->
-          <form method="post" action="" id="form">
+          <form method="post" action="../php/addItem.php" id="form">
             <table id="contact-table">
               <tr>
                 <td><label for="name">Name *</label></td>
@@ -83,7 +82,7 @@ $username = $_SESSION['user'];
                 <td><input required type="text" class="text-box" id="quantity" name="quantity"/></td>
               </tr>
               <tr>
-                <td><label for="">Diamension *</label></td>
+                <td><label for="">Dimensions *</label></td>
               </tr>
               <tr>
                 <td>
@@ -107,6 +106,12 @@ $username = $_SESSION['user'];
               <tr>
                 <td><input required type="text" class="text-box" id="category" name="category"/></td>
               </tr>
+                <tr>
+                    <td><label for="price">Price *</label></td>
+                </tr>
+                <tr>
+                    <td><input required type="text" class="text-box" id="price" name="price"/></td>
+                </tr>
               <tr>
                 <td style="text-align:center;">
                   <input type="submit" class="btn" style="height:auto; margin-top:48px"/>

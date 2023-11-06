@@ -124,7 +124,6 @@ function createOrder($orderID, $productIDs, $quantArray)
     // Establish connection with db
     $db = connectDB('root', '');
 
-    echo "I am here";
     foreach ($productIDs as $productID) {
         //Form the sql statement
         $sql = "INSERT INTO Orders VALUES ('$orderID', '$productID', '$quantArray[$productID]')";
@@ -215,7 +214,7 @@ function adminProducts()
             $quantity .
             '
                 </div>
-            <div style="width:160px; margin-top:24px;"><a class="secondary-btn" href="#">Edit</a></div>
+            <div style="width:160px; margin-top:24px;"><a class="secondary-btn" id ='.$productID.' onclick="editProduct('.$productID.')">Edit</a></div>
             </div>
         <div class="product-price">
             <span>$</span>
@@ -311,7 +310,6 @@ function addProduct(
     $length,
     $height,
     $width,
-    $weight,
     $material,
     $category,
     $price
@@ -320,8 +318,10 @@ function addProduct(
     $db = connectDB('root', '');
 
     //Form the sql statement
-    $sql = "INSERT INTO Product(Name, Description, Quantity, Length, Height, Width, Weight, Material, Category, Price) 
-VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$weight', '$material', '$category', '$price')";
+    $sql = "INSERT INTO Product(Name, Description, Quantity, Length, Height, Width, Material, Category, Price) 
+VALUES ('$name', '$des', '$quant', '$length', '$height', '$width', '$material', '$category', '$price')";
+
+    echo $sql;
 
     //Query the db
     $result = $db->query($sql);
@@ -341,6 +341,25 @@ function addProductQuantity($productID, $additionalQuantity)
 
     //Form the sql statement
     $sql = "UPDATE Product SET Quantity = Quantity + $additionalQuantity WHERE Product_id = '$productID'";
+
+    //Query the db
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo '<p>The query failed</p>';
+    }
+
+    //Close the db Connection
+    $db->close();
+}
+
+function updatePrice($productID, $newPrice)
+{
+    // Establish connection with db
+    $db = connectDB('root', '');
+
+    //Form the sql statement
+    $sql = "UPDATE Product SET Price = '$newPrice' WHERE Product_id = '$productID'";
 
     //Query the db
     $result = $db->query($sql);

@@ -3,8 +3,8 @@
 session_start();
 $username = $_SESSION['user'];
 
-if (!isset($_SESSION['items'])) {
-    header("Location: cartEmpty.php");
+if (empty($_SESSION['items'])) {
+    header("Location: emptyCart.php");
 }
 
 ?>
