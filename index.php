@@ -1,7 +1,10 @@
 <?php
 session_start();
 $username = $_SESSION['user'];
-$_SESSION['items'] = [];
+
+if ($_SESSION['items'] == null) {
+    $_SESSION['items'] = [];
+}
 ?>
 
 <!DOCTYPE html>
