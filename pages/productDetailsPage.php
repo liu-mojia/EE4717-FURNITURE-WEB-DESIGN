@@ -6,7 +6,6 @@ include '../php/dbFunctions.php';
 
 //Load session variables
 session_start();
-session_start();
 $username = $_SESSION['user'];
 // GET the product ID from the URL
 $productID = $_GET['productID'];
