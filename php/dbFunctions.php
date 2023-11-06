@@ -309,6 +309,20 @@ function getProductDetails($productID)
     return $row;
 }
 
+function removeProduct($productID)
+{
+    $db = connectDB('root', '');
+
+    $sql = "DELETE FROM Product where Product_id='$productID'";
+
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo '<p>The query failed</p>';
+    }
+    $db->close();
+}
+
 function addProduct(
     $name,
     $des,
