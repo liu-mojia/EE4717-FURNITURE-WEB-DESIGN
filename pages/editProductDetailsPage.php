@@ -35,8 +35,6 @@ if ($quant >= 1) {
 } else {
     unset($_SESSION['buyNow']);
 }
-
-//echo var_dump($_SESSION['items']);
 ?>
 
 <!DOCTYPE html>
@@ -90,64 +88,59 @@ if ($quant >= 1) {
   </div>
 
   <div id="featured-collection">
-      <div class="layout">
-        <div class="content">
-            <div class="left-column">
+  <div class="product-content">
+            <div class="product-details-display" >
                 <?php echo '<div class="product-frame" >
-                    <img src="../resource/' .
+                        <img src="../resource/' .
                     $category .
                     '/' .
                     $productID .
-                    '.jpg "  onerror="this.src=\"../resource/defaultProduct.jpeg\"">
-                </div>'; ?>
+                    '.jpg">
+                        </div>'; ?>
             </div>
-            <div class="right-column" >
+            <div class="layout">
                 <div class="">
                     <div class="">
-                    <form action="">
+
+                    <form action="../php/editProduct.php" method="POST">
+                    <input type="hidden" name="productID" value="<?php echo $productID; ?>">
+
                         <div class="edit-product" >
                             <label for="name" >Product Name </label>
-                            <input required  type="text" id="name" value="<?php echo $name; ?>"/>
+                            <input required  type="text" name="name" id="name" value="<?php echo $name; ?>"/>
                             <label for="des" >Product Description </label>
-                            <input required  type="text" id="des" value="<?php echo $des; ?>"/>
+                            <input required  type="text" name="des" id="des" value="<?php echo $des; ?>"/>
                             <label for="material" >Material </label>
-                            <input required  type="text" id="material" value="<?php echo $material; ?>"/>
+                            <input required  type="text" name="material" id="material" value="<?php echo $material; ?>"/>
                             <div class="diamension">
                                 <div class="edit-diamension">
-                                    <label for="height" >Height </label>
-                                    <input required  type="text" id="height" value="<?php echo $height; ?>"/>
+                                    <label for="height"  >Height </label>
+                                    <input required  type="text" name="height" id="height" value="<?php echo $height; ?>"/>
                                 </div>
                                 <div class="edit-diamension">
                                     <label for="width" >Width </label>
-                                    <input required  type="text" id="width" value="<?php echo $width; ?>"/>
+                                    <input required  name="width" type="text" id="width" value="<?php echo $width; ?>"/>
                                 </div>
                                 <div class="edit-diamension">
                                     <label for="len" >Length </label>
-                                    <input required  type="text" id="len" value="<?php echo $len; ?>"/>
+                                    <input required  name="len" type="text" id="len" value="<?php echo $len; ?>"/>
                                 </div>
                             </div>
-                            <label for="price" >Price </label>
-                            <input required  type="text" id="price" value="<?php echo $price; ?>"/>
+                            <label for="price"  >Price </label>
+                            <input required name="price" type="text" id="price" value="<?php echo $price; ?>"/>
                             <label for="quant" >Quantity </label>
-                            <input required  type="text" id="quant" value="<?php echo $quant; ?>"/>
+                            <input required name="quant" type="text" id="quant" value="<?php echo $quant; ?>"/>
                         </div>
-
+                        <br>
+                        <div  style="margin-bottom: 12px; width:100%; display:flex; flex-direction: column" >
+                            <input type="submit" class="btn" value="Update Product details">
+                        </div>
                     </form>
                     </div>
-                   
                 </br>
                 </div>
                 </br>
-                <a href="../php/purchaseNow.php">
-                    <div class="btn" style="margin-bottom:12px">
-                        Update
-                    </div>
-                </a>
-                <a href="../php/addToCart.php">
-                    <div class="secondary-btn">
-                       Remove Product
-                    </div>
-                </a>
+               
                 </br>
                 </br>
                 </br>

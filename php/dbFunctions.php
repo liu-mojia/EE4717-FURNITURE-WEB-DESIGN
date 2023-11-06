@@ -214,7 +214,13 @@ function adminProducts()
             $quantity .
             '
                 </div>
-            <div style="width:160px; margin-top:24px;"><a class="secondary-btn" id ='.$productID.' onclick="editProduct('.$productID.')">Edit</a></div>
+            <div style="width:160px; margin-top:24px;"><a class="secondary-btn" id =' .
+            $productID .
+            ' 
+            href="../pages/editProductDetailsPage.php?productID=' .
+            $productID .
+            '"
+            >Edit</a></div>
             </div>
         <div class="product-price">
             <span>$</span>
@@ -369,6 +375,38 @@ function updatePrice($productID, $newPrice)
     }
 
     //Close the db Connection
+    $db->close();
+}
+
+function updateProduct(
+    $productID,
+    $name,
+    $des,
+    $material,
+    $height,
+    $width,
+    $len,
+    $price,
+    $quant
+) {
+    // Establish connection with the database
+    $db = connectDB('root', '');
+
+    // Form the SQL statement to update all fields
+    $sql = "UPDATE Product 
+            SET Name = '$name', Description = '$des', Material = '$material', 
+                Height = '$height', Width = '$width', Length = '$len', 
+                Price = '$price', Quantity = '$quant' 
+            WHERE Product_id = '$productID'";
+
+    // Query the database
+    $result = $db->query($sql);
+
+    if (!$result) {
+        echo '<p>The query failed</p>';
+    }
+
+    // Close the database connection
     $db->close();
 }
 
