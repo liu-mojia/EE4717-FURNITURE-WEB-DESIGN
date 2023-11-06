@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       updateItemQuantity(productId, 0);
 
+      window.location.href = "../pages/cart.php";
+
     })
 
     plusButton.addEventListener('click', function() {
