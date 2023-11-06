@@ -1,6 +1,7 @@
 <?php
 session_start();
 $username = $_SESSION['user'];
+$_SESSION['items'] = [];
 ?>
 
 <!DOCTYPE html>
