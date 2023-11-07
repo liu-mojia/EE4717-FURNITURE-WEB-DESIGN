@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
 
 if (!isset($_SESSION['items'])) {
     header('Location: ../pages/cartEmpty.php');

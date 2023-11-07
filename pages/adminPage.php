@@ -1,7 +1,9 @@
 
 <?php
 session_start();
-$username = $_SESSION['user'];
+
+    if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
+
 ?>
 <?php include '../php/dbFunctions.php'; ?>
 <!DOCTYPE html>
