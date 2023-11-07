@@ -1,10 +1,12 @@
 
 <?php
 session_start();
-if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
+if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+}
 
 if (!isset($_SESSION['items'])) {
-    header('Location: ../pages/cartEmpty.php');
+    header('Location: ../pages/emptyCart.php');
 }
 ?>
 
