@@ -2,7 +2,7 @@
 //Load session variables
 session_start();
 
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
 
 //Purchase Now selected
 if (!isset($_SESSION['items'])) {

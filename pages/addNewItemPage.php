@@ -1,6 +1,9 @@
 <?php
 session_start();
-$username = $_SESSION['user'];
+
+if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +54,7 @@ $username = $_SESSION['user'];
       </div>
     </div>
 
-    <div id="featured-collection" style="background-image: url('../resource/bg2.png'); bottom:0;
+    <div id="featured-collection" style="background-image: url('../resource/bg2.png');height:100%; bottom:0;
 ">
     <div class="layout">
 

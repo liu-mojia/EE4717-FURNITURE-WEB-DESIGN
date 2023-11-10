@@ -1,10 +1,15 @@
 <?php
 session_start();
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) {
+    if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
+}
+
 
 if ($_SESSION['items'] == null) {
     $_SESSION['items'] = [];
 }
+
+error_reporting(E_ERROR | E_PARSE);
 ?>
 
 <!DOCTYPE html>

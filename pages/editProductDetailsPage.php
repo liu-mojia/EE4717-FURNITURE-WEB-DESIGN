@@ -7,7 +7,9 @@ include '../php/dbFunctions.php';
 //Load session variables
 session_start();
 
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+}
 
 // GET the product ID from the URL
 $productID = $_GET['productID'];
@@ -110,6 +112,7 @@ if ($quant >= 1) {
                             <input required  type="text" name="name" id="name" value="<?php echo $name; ?>"/>
                             <label for="des" >Product Description </label>
                             <input required  type="text" name="des" id="des" value="<?php echo $des; ?>"/>
+
                             <label for="material" >Material </label>
                             <input required  type="text" name="material" id="material" value="<?php echo $material; ?>"/>
                             <div class="diamension">

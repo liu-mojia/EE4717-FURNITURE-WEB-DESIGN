@@ -1,6 +1,6 @@
 <?php
 session_start();
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
 
 if (isset($_GET['login'])) {
     $failed = true;

@@ -6,7 +6,7 @@ if (isset($_SESSION['email'])) {
 } else {
     $userEmail = '';
 }
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
 ?>
 
 <!DOCTYPE html>

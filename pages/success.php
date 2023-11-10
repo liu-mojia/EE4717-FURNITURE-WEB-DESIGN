@@ -2,7 +2,7 @@
 include '../php/emailFunction.php'; ?>
 <?php
 session_start();
-$username = $_SESSION['user'];
+if (isset($_SESSION['user'])) { $username = $_SESSION['user']; }
 ?>
 <!DOCTYPE html>
 <html lang="en">
